@@ -839,22 +839,17 @@ async function sendMessage() {
   appendMsg('user', text);
   history.push({ role:'user', content:text });
   showTyping();
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        // 🔑 Remplace par ta clé API Anthropic :
-         'x-api-key': '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',
-         'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        system: CHAT_CONTENT[currentLang].systemPrompt,
-        messages: history
-      })
-    });
+  try {const res = await fetch('/.netlify/functions/chat', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    model: 'claude-sonnet-4-20250514',
+    max_tokens: 1000,
+    system: CHAT_CONTENT[currentLang].systemPrompt,
+    messages: history
+  })
+});
+   
     const data = await res.json();
     hideTyping();
     const reply = data.content?.[0]?.text ||
