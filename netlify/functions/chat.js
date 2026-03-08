@@ -17,12 +17,14 @@ exports.handler = async function(event) {
     });
 
     const data = await response.json();
+    console.log('Anthropic response:', JSON.stringify(data));  // ← ajout
     return {
       statusCode: 200,
       headers: { 'Access-Control-Allow-Origin': '*' },
       body: JSON.stringify(data)
     };
   } catch (err) {
+    console.log('Error:', err.message);  // ← ajout
     return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
   }
 };
