@@ -112,7 +112,13 @@ nav {
 .hero-wrap {
   min-height:100dvh; display:grid; grid-template-columns:1fr 1fr; padding-top:50px;
 }
-
+/* PP */
+.hero-photo {
+  width: 72px; height: 72px; border-radius: 50%;
+  object-fit: cover; object-position: center top;
+  border: 2px solid var(--border);
+  margin-bottom: 20px;
+}
 /* LEFT */
 .hero-left {
   display:flex; flex-direction:column; justify-content:center;
@@ -374,7 +380,8 @@ footer {
 
 <!-- ══ HERO ══ -->
 <div class="hero-wrap" id="home">
-
+    <!-- pp -->
+<img src="Joey_Augustinien_PP.jpeg" alt="Joey Augustinien" class="hero-photo">
   <!-- LEFT -->
   <div class="hero-left">
     <div class="hero-tag" data-fr="Design conversationnel · Product Owner" data-en="Conversational Design · Product Owner">
