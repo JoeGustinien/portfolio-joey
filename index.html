@@ -3,13 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Joey Augustinien — Conversational Designer & Product Owner</title>
+<title>Joey Augustinien — Chef de Projet Numérique & IA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ══════════════════════════════════════
-   VARIABLES — LIGHT (défaut)
-══════════════════════════════════════ */
 :root {
   --bg:           #F2EFE9;
   --bg2:          #FDFCF8;
@@ -24,11 +21,8 @@
   --msg-bot-bg:   #E3EDE7;
   --msg-user-bg:  #17170E;
   --msg-user-c:   #fff;
-  --admin-bg:     #17170E;
-  --panel-w:      380px;
 }
 
-/* DARK */
 [data-theme="dark"] {
   --bg:           #111109;
   --bg2:          #1A1A12;
@@ -54,7 +48,7 @@ body {
   transition: background .3s, color .3s;
 }
 
-/* ══ NAV ══ */
+/* NAV */
 nav {
   position:fixed; top:0; left:0; right:0; z-index:300;
   height:50px; display:flex; align-items:center; justify-content:space-between;
@@ -81,45 +75,34 @@ nav {
   text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s;
 }
 .nav-links a:hover { color:var(--accent); }
-
-/* controls group */
 .nav-controls { display:flex; align-items:center; gap:8px; }
-
-/* lang switch */
 .lang-switch {
-  display:flex; align-items:center; gap:0;
-  border:1px solid var(--border); border-radius:2px; overflow:hidden;
+  display:flex; border:1px solid var(--border); border-radius:2px; overflow:hidden;
 }
 .lang-btn {
   padding:4px 9px; font-size:0.65rem; font-weight:600; letter-spacing:0.07em;
   text-transform:uppercase; background:transparent; border:none;
-  color:var(--muted); cursor:pointer; font-family:'Inter',sans-serif;
-  transition: all .18s;
+  color:var(--muted); cursor:pointer; font-family:'Inter',sans-serif; transition:all .18s;
 }
 .lang-btn.active { background:var(--accent); color:#fff; }
 .lang-btn:not(.active):hover { color:var(--ink); }
-
-/* theme toggle */
 .theme-toggle {
   width:32px; height:32px; border-radius:2px;
   border:1px solid var(--border); background:transparent;
   cursor:pointer; display:flex; align-items:center; justify-content:center;
-  font-size:0.85rem; transition: all .18s; color:var(--muted);
+  font-size:0.85rem; transition:all .18s; color:var(--muted);
 }
 .theme-toggle:hover { border-color:var(--accent); color:var(--accent); }
 
-/* ══ HERO SPLIT ══ */
+/* HERO SPLIT */
 .hero-wrap {
   min-height:100dvh; display:grid; grid-template-columns:1fr 1fr; padding-top:50px;
 }
-/* PP */
 .hero-photo {
-  width: 72px; height: 72px; border-radius: 50%;
-  object-fit: cover; object-position: center top;
-  border: 2px solid var(--border);
-  margin-bottom: 20px;
+  width:72px; height:72px; border-radius:50%;
+  object-fit:cover; object-position:center top;
+  border:2px solid var(--border); margin-bottom:20px; display:block;
 }
-/* LEFT */
 .hero-left {
   display:flex; flex-direction:column; justify-content:center;
   padding:64px 52px; border-right:1px solid var(--border);
@@ -137,7 +120,6 @@ nav {
   text-transform:uppercase; color:var(--accent2); margin-bottom:22px;
 }
 .hero-tag::before, .hero-tag::after { content:''; width:22px; height:1px; background:var(--accent2); }
-
 h1 {
   font-family:'Lora',serif;
   font-size:clamp(2.6rem,4.2vw,4.4rem);
@@ -159,14 +141,12 @@ h1 em { font-style:italic; color:var(--accent); }
 }
 .pillar {
   flex:1; padding:13px 14px; text-align:center;
-  border-right:1px solid var(--border); background:var(--bg2);
-  transition: background .3s;
+  border-right:1px solid var(--border); background:var(--bg2); transition:background .3s;
 }
 .pillar:last-child { border-right:none; }
 .pillar-icon { font-size:1rem; margin-bottom:3px; }
 .pillar-label { font-size:0.6rem; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; color:var(--muted); }
 .pillar-val { font-family:'Lora',serif; font-size:0.9rem; color:var(--ink); margin-top:2px; }
-
 .hero-actions { display:flex; gap:10px; flex-wrap:wrap; }
 .btn {
   display:inline-flex; align-items:center; gap:7px;
@@ -181,7 +161,6 @@ h1 em { font-style:italic; color:var(--accent); }
 .btn-gold:hover { opacity:.88; }
 .btn-outline { background:transparent; color:var(--ink); border:1px solid var(--border); }
 .btn-outline:hover { border-color:var(--ink); }
-
 .scroll-cue {
   margin-top:36px; font-size:0.67rem; color:var(--muted);
   display:flex; align-items:center; gap:8px; letter-spacing:0.07em;
@@ -189,13 +168,13 @@ h1 em { font-style:italic; color:var(--accent); }
 }
 .scroll-cue:hover { color:var(--accent); }
 
-/* ══ CHAT PANEL ══ */
+/* CHAT PANEL */
 .hero-right {
   display:flex; flex-direction:column;
   background:var(--chat-bg);
   height:calc(100dvh - 50px);
   position:sticky; top:50px; overflow:hidden;
-  transition: background .3s;
+  transition:background .3s;
 }
 .chat-header {
   padding:16px 22px 13px; border-bottom:1px solid var(--border);
@@ -239,14 +218,12 @@ h1 em { font-style:italic; color:var(--accent); }
   transition:all .18s; white-space:nowrap;
 }
 .quick-btn:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
-
 .chat-messages {
   flex:1; overflow-y:auto; padding:18px 16px;
   display:flex; flex-direction:column; gap:12px; min-height:0;
 }
 .chat-messages::-webkit-scrollbar { width:3px; }
 .chat-messages::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
-
 .msg { display:flex; gap:9px; max-width:90%; }
 .msg.user { align-self:flex-end; flex-direction:row-reverse; }
 .msg-av {
@@ -256,17 +233,13 @@ h1 em { font-style:italic; color:var(--accent); }
 }
 .msg.bot .msg-av { background:var(--accent); color:#fff; }
 .msg.user .msg-av { background:var(--ink); color:var(--bg); }
-.msg-bubble {
-  padding:10px 13px; border-radius:3px; font-size:0.82rem; line-height:1.7;
-}
+.msg-bubble { padding:10px 13px; border-radius:3px; font-size:0.82rem; line-height:1.7; }
 .msg.bot .msg-bubble { background:var(--msg-bot-bg); color:var(--ink); }
 .msg.user .msg-bubble { background:var(--msg-user-bg); color:var(--msg-user-c); }
-
 .typing-indicator { display:flex; gap:4px; align-items:center; padding:10px 13px; }
 .typing-dot { width:5px; height:5px; border-radius:50%; background:var(--accent); animation:blink 1.2s infinite; }
 .typing-dot:nth-child(2) { animation-delay:.2s; }
 .typing-dot:nth-child(3) { animation-delay:.4s; }
-
 .chat-input-row { display:flex; border-top:1px solid var(--border); flex-shrink:0; }
 #chat-input {
   flex:1; padding:13px 15px; border:none; outline:none;
@@ -280,9 +253,9 @@ h1 em { font-style:italic; color:var(--accent); }
 }
 #send-btn:hover { opacity:.85; }
 
-/* ══ SECTIONS ══ */
+/* SECTIONS */
 .section-wrap { border-top:1px solid var(--border); }
-.section-bg2 { background:var(--bg2); transition: background .3s; }
+.section-bg2 { background:var(--bg2); transition:background .3s; }
 .section-inner { max-width:1080px; margin:0 auto; padding:84px 52px; }
 .section-label {
   font-size:0.62rem; font-weight:600; letter-spacing:0.14em;
@@ -292,8 +265,6 @@ h2 {
   font-family:'Lora',serif; font-weight:500;
   font-size:clamp(1.7rem,3vw,2.4rem); margin-bottom:46px; color:var(--ink);
 }
-
-/* TIMELINE */
 .timeline { position:relative; padding-left:22px; }
 .timeline::before { content:''; position:absolute; left:0; top:6px; bottom:0; width:1px; background:var(--border); }
 .tl-item { position:relative; padding-left:26px; margin-bottom:40px; }
@@ -304,44 +275,31 @@ h2 {
 .tl-desc { font-size:0.84rem; color:var(--muted); max-width:580px; }
 .tl-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:11px; }
 .tag { font-size:0.63rem; padding:3px 8px; background:var(--accent-light); color:var(--accent); border-radius:2px; font-weight:600; }
-
-/* SKILLS */
 .skills-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; }
 .skill-card {
   background:var(--bg); border:1px solid var(--border);
-  padding:22px; border-radius:3px; transition:border-color .2s, transform .2s, background .3s;
+  padding:22px; border-radius:3px; transition:border-color .2s,transform .2s,background .3s;
 }
 .skill-card:hover { border-color:var(--accent2); transform:translateY(-2px); }
 .skill-card-title { font-size:0.63rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent2); margin-bottom:13px; }
 .skill-list { list-style:none; }
 .skill-list li { font-size:0.82rem; padding:5px 0; border-bottom:1px solid var(--border); color:var(--ink); }
 .skill-list li:last-child { border-bottom:none; }
-
-/* FORMATIONS */
 .formations-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; }
 .formation-card {
   background:var(--bg); border:1px solid var(--border);
-  padding:20px; border-radius:3px; display:flex; flex-direction:column; gap:6px;
-  transition: background .3s;
+  padding:20px; border-radius:3px; display:flex; flex-direction:column; gap:6px; transition:background .3s;
 }
 .formation-year { font-size:0.63rem; font-weight:700; color:var(--accent2); letter-spacing:0.1em; text-transform:uppercase; }
 .formation-title { font-family:'Lora',serif; font-size:0.95rem; line-height:1.3; font-weight:500; color:var(--ink); }
 .formation-school { font-size:0.76rem; color:var(--muted); }
-
-/* CONTACT */
 .contact-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:28px; }
+footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--muted); border-top:1px solid var(--border); }
 
-footer {
-  text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--muted);
-  border-top:1px solid var(--border);
-}
-
-/* ANIMATIONS */
 @keyframes blink { 0%,80%,100%{opacity:.2} 40%{opacity:1} }
 @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
 .fade-up { animation:fadeUp .4s ease forwards; }
 
-/* RESPONSIVE */
 @media(max-width:820px){
   .hero-wrap { grid-template-columns:1fr; min-height:auto; }
   .hero-left { padding:68px 24px 40px; border-right:none; border-bottom:1px solid var(--border); }
@@ -355,11 +313,11 @@ footer {
 </head>
 <body>
 
-<!-- ══ NAV ══ -->
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
     Joey Augustinien
-    <span class="nav-badge" data-fr="Design Conv." data-en="Conv. Design">Design Conv.</span>
+    <span class="nav-badge" data-fr="Projet Numérique" data-en="Conv. Design">Projet Numérique</span>
   </a>
   <div class="nav-right">
     <ul class="nav-links">
@@ -373,41 +331,42 @@ footer {
         <button class="lang-btn active" onclick="setLang('fr')">FR</button>
         <button class="lang-btn" onclick="setLang('en')">EN</button>
       </div>
-      <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="Toggle dark/light">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">🌙</button>
     </div>
   </div>
 </nav>
 
-<!-- ══ HERO ══ -->
+<!-- HERO -->
 <div class="hero-wrap" id="home">
-  <!-- LEFT -->
   <div class="hero-left">
     <img src="Joey_Augustinien_PP.jpeg" alt="Joey Augustinien" class="hero-photo">
-    <div class="hero-tag" data-fr="Design conversationnel · Product Owner" data-en="Conversational Design · Product Owner">
-      Design conversationnel · Product Owner
+    <div class="hero-tag"
+      data-fr="Chef de Projet Numérique · IA & Chatbot"
+      data-en="Conversational Designer · Product Owner">
+      Chef de Projet Numérique · IA & Chatbot
     </div>
     <h1>Joey<br><em>Augustinien</em></h1>
     <div class="hero-subtitle"
-      data-fr="Je conçois des conversations qui font la différence."
+      data-fr="J'accompagne les organisations dans leur transformation numérique."
       data-en="I design conversations that make a difference.">
-      Je conçois des conversations qui font la différence.
+      J'accompagne les organisations dans leur transformation numérique.
     </div>
     <p class="hero-bio"
-      data-fr="6 ans à transformer des parcours utilisateurs en expériences conversationnelles fluides — chez Orange, ENGIE et au-delà. De la définition du persona à l'analyse des KPIs, je pilote le produit conversationnel de bout en bout."
+      data-fr="8 ans d'expérience dans l'accompagnement des usages digitaux, l'animation d'ateliers et la conduite de projets IA. J'interviens auprès d'équipes variées pour faire du numérique un levier concret, accessible et utile."
       data-en="6 years turning user journeys into seamless conversational experiences — at Orange, ENGIE and beyond. From persona definition to KPI analysis, I drive conversational products end to end.">
-      6 ans à transformer des parcours utilisateurs en expériences conversationnelles fluides — chez Orange, ENGIE et au-delà. De la définition du persona à l'analyse des KPIs, je pilote le produit conversationnel de bout en bout.
+      8 ans d'expérience dans l'accompagnement des usages digitaux, l'animation d'ateliers et la conduite de projets IA. J'interviens auprès d'équipes variées pour faire du numérique un levier concret, accessible et utile.
     </p>
 
     <div class="pillars">
       <div class="pillar">
-        <div class="pillar-icon">💬</div>
-        <div class="pillar-label" data-fr="Dialogue" data-en="Dialogue">Dialogue</div>
-        <div class="pillar-val" data-fr="UX conv." data-en="Conv. UX">UX conv.</div>
+        <div class="pillar-icon">🎓</div>
+        <div class="pillar-label" data-fr="Pédagogie" data-en="Dialogue">Pédagogie</div>
+        <div class="pillar-val" data-fr="Ateliers & formation" data-en="Conv. UX">Ateliers</div>
       </div>
       <div class="pillar">
-        <div class="pillar-icon">🧭</div>
-        <div class="pillar-label" data-fr="Produit" data-en="Product">Produit</div>
-        <div class="pillar-val">PO · Agile</div>
+        <div class="pillar-icon">🤖</div>
+        <div class="pillar-label" data-fr="IA & Chatbot" data-en="Product">IA & Chatbot</div>
+        <div class="pillar-val" data-fr="Expert 6 ans" data-en="PO · Agile">Expert 6 ans</div>
       </div>
       <div class="pillar">
         <div class="pillar-icon">⚡</div>
@@ -419,7 +378,7 @@ footer {
     <div class="hero-actions">
       <a href="mailto:joey.augustinien@gmail.com" class="btn btn-primary"
         data-fr="✉ Me contacter" data-en="✉ Get in touch">✉ Me contacter</a>
-      <a href="CV_Joey_Augustinien.pdf" download class="btn btn-gold"
+      <a href="CV_Joey_Augustinien_2026.pdf" download class="btn btn-gold"
         data-fr="↓ CV" data-en="↓ Resume">↓ CV</a>
     </div>
     <a href="#experience" class="scroll-cue"
@@ -428,7 +387,7 @@ footer {
     </a>
   </div>
 
-  <!-- RIGHT — CHAT -->
+  <!-- CHAT -->
   <div class="hero-right">
     <div class="chat-header">
       <div class="chat-av">JA</div>
@@ -440,26 +399,14 @@ footer {
         </div>
       </div>
     </div>
-
-    <div class="chat-expertise">
-      <span class="exp-pill">Conversational Design</span>
-      <span class="exp-pill">Product Owner</span>
-      <span class="exp-pill">UX Writing</span>
-      <span class="exp-pill">Dialogflow · Rasa</span>
-      <span class="exp-pill">Agile</span>
+    <div class="chat-expertise" id="chat-expertise-pills">
+      <!-- injected by JS -->
     </div>
-
     <div class="quick-area">
       <div class="quick-label" data-fr="Questions rapides" data-en="Quick questions">Questions rapides</div>
-      <div class="quick-questions" id="quick-questions">
-        <!-- injected by JS -->
-      </div>
+      <div class="quick-questions" id="quick-questions"></div>
     </div>
-
-    <div class="chat-messages" id="chat-messages">
-      <!-- welcome msg injected by JS -->
-    </div>
-
+    <div class="chat-messages" id="chat-messages"></div>
     <div class="chat-input-row">
       <textarea id="chat-input" rows="1"
         onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage();}"></textarea>
@@ -468,7 +415,7 @@ footer {
   </div>
 </div>
 
-<!-- ══ EXPERIENCE ══ -->
+<!-- EXPERIENCE -->
 <div class="section-wrap">
   <div class="section-inner" id="experience">
     <div class="section-label" data-fr="Parcours" data-en="Career">Parcours</div>
@@ -479,110 +426,124 @@ footer {
         <div class="tl-dot"></div>
         <div class="tl-date" data-fr="Déc. 2024 → En cours" data-en="Dec. 2024 → Present">Déc. 2024 → En cours</div>
         <div class="tl-company">ENGIE · Degetel</div>
-        <div class="tl-role" data-fr="Product Owner IA & Chatbot" data-en="Product Owner AI & Chatbot">Product Owner IA & Chatbot</div>
+        <div class="tl-role"
+          data-fr="Consultant Numérique — IA & Chatbot"
+          data-en="Product Owner AI & Chatbot">Consultant Numérique — IA & Chatbot</div>
         <div class="tl-desc"
-          data-fr="Pilotage du changement de solution chatbot : définition de la vision produit, cadrage des objectifs, recueil des besoins, rédaction du cahier des charges fonctionnel. Tests, Go/NoGo et accompagnement des équipes dans la transition technologique."
+          data-fr="Pilotage du changement de solution chatbot : étude des besoins, accompagnement des équipes dans la transition technologique, animation d'ateliers de formation autour des bonnes pratiques numériques."
           data-en="Led a chatbot platform migration: defined product vision, scoped objectives, gathered requirements, wrote functional specifications. Conducted tests, Go/NoGo decisions and supported teams through the tech transition.">
-          Pilotage du changement de solution chatbot : définition de la vision produit, cadrage des objectifs, recueil des besoins, rédaction du cahier des charges fonctionnel. Tests, Go/NoGo et accompagnement des équipes dans la transition technologique.
+          Pilotage du changement de solution chatbot : étude des besoins, accompagnement des équipes dans la transition technologique, animation d'ateliers de formation autour des bonnes pratiques numériques.
         </div>
-        <div class="tl-tags"><span class="tag">Vision produit</span><span class="tag">CdCF</span><span class="tag">Go/NoGo</span><span class="tag">Angular</span><span class="tag">Azure</span></div>
+        <div class="tl-tags"><span class="tag">Conduite du changement</span><span class="tag">Ateliers</span><span class="tag">IA</span><span class="tag">Chatbot</span></div>
       </div>
 
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date" data-fr="Mars 2020 → Juin 2023" data-en="Mar. 2020 → Jun. 2023">Mars 2020 → Juin 2023</div>
         <div class="tl-company">Orange · SpeakUX!</div>
-        <div class="tl-role" data-fr="PO / UX Designer Chatbot" data-en="PO / UX Designer Chatbot">PO / UX Designer Chatbot</div>
+        <div class="tl-role"
+          data-fr="Consultant Numérique Chatbot"
+          data-en="PO / UX Designer Chatbot">Consultant Numérique Chatbot</div>
         <div class="tl-desc"
-          data-fr="Refonte du parcours d'explication des factures → +20 pts de satisfaction client. Optimisation de la collecte de satisfaction intégrée au chatbot → +30 % d'évaluations. Conception d'arbres conversationnels, analyse des conversations, gestion du backlog produit."
+          data-fr="Accompagnement des utilisateurs dans l'adoption d'un chatbot conversationnel. Analyse des besoins, amélioration de l'expérience digitale, animation d'ateliers. Résultats : +20 pts de satisfaction client, +30 % d'évaluations."
           data-en="Redesigned the billing explanation flow → +20 pts customer satisfaction. Optimised in-bot satisfaction collection → +30% response rate. Designed conversational trees, analysed conversations, managed product backlog.">
-          Refonte du parcours d'explication des factures → <strong>+20 pts de satisfaction client</strong>. Optimisation de la collecte de satisfaction intégrée au chatbot → <strong>+30 % d'évaluations</strong>. Conception d'arbres conversationnels, analyse des conversations, gestion du backlog produit.
+          Accompagnement des utilisateurs dans l'adoption d'un chatbot conversationnel. Analyse des besoins, amélioration de l'expérience digitale, animation d'ateliers. Résultats : <strong>+20 pts de satisfaction</strong>, <strong>+30 % d'évaluations</strong>.
         </div>
-        <div class="tl-tags"><span class="tag">Rasa</span><span class="tag">Dialogflow</span><span class="tag">Figma</span><span class="tag">UX conv.</span><span class="tag">Agile Scrum</span></div>
+        <div class="tl-tags"><span class="tag">Adoption digitale</span><span class="tag">UX</span><span class="tag">Ateliers</span><span class="tag">Chatbot</span><span class="tag">Agile</span></div>
       </div>
 
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date" data-fr="Sept. 2018 → Nov. 2019" data-en="Sep. 2018 → Nov. 2019">Sept. 2018 → Nov. 2019</div>
         <div class="tl-company">Orange</div>
-        <div class="tl-role" data-fr="Chargé de communication digitale" data-en="Digital Communication Manager">Chargé de communication digitale</div>
+        <div class="tl-role"
+          data-fr="Chargé de communication digitale"
+          data-en="Digital Communication Manager">Chargé de communication digitale</div>
         <div class="tl-desc"
-          data-fr="Création de contenus stratégiques pour la DRH des Fonctions Support. Gestion de la ligne éditoriale interne et externe, intégration multimédia, analyse de performance des actions de communication."
+          data-fr="Propositions de solutions de communication innovantes pour la DRH. Création et publication de contenus liés à la marque (interne et externe). Réalisation multimédia : photo, vidéo, intégration web."
           data-en="Produced strategic content for the HR Support Functions. Managed internal and external editorial lines, multimedia integration and communication performance analysis.">
-          Création de contenus stratégiques pour la DRH des Fonctions Support. Gestion de la ligne éditoriale interne et externe, intégration multimédia, analyse de performance des actions de communication.
+          Propositions de solutions de communication innovantes pour la DRH. Création et publication de contenus liés à la marque (interne et externe). Réalisation multimédia : photo, vidéo, intégration web.
         </div>
-        <div class="tl-tags"><span class="tag">Éditorial</span><span class="tag">HTML/CSS</span><span class="tag">Adobe Suite</span><span class="tag">CMS</span></div>
+        <div class="tl-tags"><span class="tag">Communication</span><span class="tag">Éditorial</span><span class="tag">Multimédia</span><span class="tag">HTML/CSS</span></div>
       </div>
 
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date" data-fr="Avr. 2017 → Sept. 2018" data-en="Apr. 2017 → Sep. 2018">Avr. 2017 → Sept. 2018</div>
         <div class="tl-company">Nouvelle Cour Agency</div>
-        <div class="tl-role" data-fr="Chef de projet digital & éditorial" data-en="Digital & Editorial Project Manager">Chef de projet digital & éditorial</div>
+        <div class="tl-role"
+          data-fr="Chef de projet digital & éditorial"
+          data-en="Digital & Editorial Project Manager">Chef de projet digital & éditorial</div>
         <div class="tl-desc"
-          data-fr="Stratégie éditoriale pour la tournée YouTube France #ToiMêmeTuFilmes. Gestion du projet web FairTradeFilmChallenge (MaxHavelaar). Contenus audiovisuels pour Bouygues Immobilier."
+          data-fr="Gestion de projet et stratégie éditoriale pour #ToiMêmeTuFilmes (YouTube France). Gestion du projet web FairTradeFilmChallenge (MaxHavelaar). Contenus digitaux pour Bouygues Immobilier."
           data-en="Editorial strategy for the YouTube France tour #ToiMêmeTuFilmes. Managed the FairTradeFilmChallenge web project (MaxHavelaar). Audiovisual content for Bouygues Immobilier.">
-          Stratégie éditoriale pour la tournée YouTube France #ToiMêmeTuFilmes. Gestion du projet web FairTradeFilmChallenge (MaxHavelaar). Contenus audiovisuels pour Bouygues Immobilier.
+          Gestion de projet et stratégie éditoriale pour #ToiMêmeTuFilmes (YouTube France). Gestion du projet web FairTradeFilmChallenge (MaxHavelaar). Contenus digitaux pour Bouygues Immobilier.
         </div>
-        <div class="tl-tags"><span class="tag">Gestion de projet</span><span class="tag">YouTube</span><span class="tag">Audiovisuel</span></div>
+        <div class="tl-tags"><span class="tag">Gestion de projet</span><span class="tag">Stratégie digitale</span><span class="tag">Audiovisuel</span></div>
       </div>
 
     </div>
   </div>
 </div>
 
-<!-- ══ COMPETENCES ══ -->
+<!-- COMPETENCES -->
 <div class="section-wrap section-bg2">
   <div class="section-inner" id="competences">
     <div class="section-label" data-fr="Savoir-faire" data-en="Expertise">Savoir-faire</div>
     <h2 data-fr="Compétences" data-en="Skills">Compétences</h2>
     <div class="skills-grid">
+
       <div class="skill-card">
-        <div class="skill-card-title" data-fr="Design Conversationnel" data-en="Conversational Design">Design Conversationnel</div>
+        <div class="skill-card-title" data-fr="Accompagnement & Pédagogie" data-en="Conversational Design">Accompagnement & Pédagogie</div>
         <ul class="skill-list">
-          <li data-fr="Conception d'arbres conversationnels" data-en="Conversational flow design">Conception d'arbres conversationnels</li>
-          <li data-fr="UX Writing conversationnel" data-en="Conversational UX Writing">UX Writing conversationnel</li>
-          <li data-fr="Persona & ton de voix" data-en="Persona & tone of voice">Persona & ton de voix</li>
-          <li>Dialogflow · Rasa</li>
-          <li data-fr="Analyse des conversations & KPIs" data-en="Conversation analysis & KPIs">Analyse des conversations & KPIs</li>
-          <li data-fr="Tests utilisateurs & itérations" data-en="User testing & iterations">Tests utilisateurs & itérations</li>
+          <li data-fr="Animation d'ateliers de formation" data-en="Conversational flow design">Animation d'ateliers de formation</li>
+          <li data-fr="Acculturation IA & outils numériques" data-en="Conversational UX Writing">Acculturation IA & outils numériques</li>
+          <li data-fr="Accompagnement au changement" data-en="Persona & tone of voice">Accompagnement au changement</li>
+          <li data-fr="Médiation numérique" data-en="Dialogflow · Rasa">Médiation numérique</li>
+          <li data-fr="Création de supports pédagogiques" data-en="Conversation analysis & KPIs">Création de supports pédagogiques</li>
+          <li data-fr="Sens du service public" data-en="User testing & iterations">Sens du service public</li>
         </ul>
       </div>
+
       <div class="skill-card">
-        <div class="skill-card-title" data-fr="Product Management" data-en="Product Management">Product Management</div>
+        <div class="skill-card-title" data-fr="Gestion de Projet & IA" data-en="Product Management">Gestion de Projet & IA</div>
         <ul class="skill-list">
-          <li data-fr="Recueil & analyse des besoins" data-en="Requirements gathering & analysis">Recueil & analyse des besoins</li>
-          <li data-fr="Priorisation backlog (valeur / ROI)" data-en="Backlog prioritisation (value / ROI)">Priorisation backlog (valeur / ROI)</li>
-          <li data-fr="Rédaction de spécifications" data-en="Functional specifications">Rédaction de spécifications</li>
-          <li data-fr="Animation d'ateliers de cadrage" data-en="Workshop facilitation">Animation d'ateliers de cadrage</li>
-          <li data-fr="KPIs produit & roadmap" data-en="Product KPIs & roadmap">KPIs produit & roadmap</li>
-          <li data-fr="Recette fonctionnelle (UAT)" data-en="Functional testing (UAT)">Recette fonctionnelle (UAT)</li>
+          <li data-fr="Conduite de projets digitaux" data-en="Requirements gathering & analysis">Conduite de projets digitaux</li>
+          <li data-fr="Recueil & analyse des besoins" data-en="Backlog prioritisation">Recueil & analyse des besoins</li>
+          <li data-fr="Chatbot & IA conversationnelle" data-en="Functional specifications">Chatbot & IA conversationnelle</li>
+          <li data-fr="Rédaction de spécifications" data-en="Workshop facilitation">Rédaction de spécifications</li>
+          <li data-fr="Suivi & reporting" data-en="Product KPIs & roadmap">Suivi & reporting</li>
+          <li data-fr="Méthodologies Agiles" data-en="Functional testing (UAT)">Méthodologies Agiles</li>
         </ul>
       </div>
+
       <div class="skill-card">
         <div class="skill-card-title" data-fr="Tech & Outils" data-en="Tech & Tools">Tech & Outils</div>
         <ul class="skill-list">
-          <li>HTML5 · CSS3 · JavaScript · React</li>
+          <li>HTML · CSS · JavaScript · React</li>
           <li>Figma · Canva</li>
           <li>Jira · Confluence · Notion · GitHub</li>
+          <li>Dialogflow · Rasa</li>
           <li>Suite Adobe</li>
         </ul>
       </div>
+
       <div class="skill-card">
-        <div class="skill-card-title" data-fr="Méthodes & Soft Skills" data-en="Methods & Soft Skills">Méthodes & Soft Skills</div>
+        <div class="skill-card-title" data-fr="Soft Skills" data-en="Methods & Soft Skills">Soft Skills</div>
         <ul class="skill-list">
-          <li>Agile Scrum · Kanban · SAFe</li>
-          <li data-fr="Coordination équipes multi-disciplinaires" data-en="Cross-functional team coordination">Coordination équipes multi-disciplinaires</li>
-          <li data-fr="Pédagogie & accompagnement" data-en="Mentoring & coaching">Pédagogie & accompagnement</li>
+          <li data-fr="Pédagogie & accompagnement" data-en="Cross-functional team coordination">Pédagogie & accompagnement</li>
+          <li data-fr="Relationnel & écoute active" data-en="Mentoring & coaching">Relationnel & écoute active</li>
           <li data-fr="Rigueur & organisation" data-en="Rigour & organisation">Rigueur & organisation</li>
-          <li data-fr="Adaptation & relationnel" data-en="Adaptability & communication">Adaptation & relationnel</li>
+          <li data-fr="Travail en équipe" data-en="Adaptability & communication">Travail en équipe</li>
+          <li data-fr="Adaptation & initiative" data-en="Agile Scrum · Kanban · SAFe">Adaptation & initiative</li>
         </ul>
       </div>
+
     </div>
   </div>
 </div>
 
-<!-- ══ FORMATIONS ══ -->
+<!-- FORMATIONS -->
 <div class="section-wrap">
   <div class="section-inner" id="formations">
     <div class="section-label" data-fr="Cursus" data-en="Education">Cursus</div>
@@ -590,7 +551,7 @@ footer {
     <div class="formations-grid">
       <div class="formation-card">
         <div class="formation-year">2023 – 2024</div>
-        <div class="formation-title" data-fr="Titre Pro DWWM — Développeur Web & Web Mobile" data-en="Professional Degree — Web & Mobile Developer">Titre Pro DWWM — Développeur Web & Web Mobile</div>
+        <div class="formation-title" data-fr="Titre Pro — Développeur Web & Web Mobile" data-en="Professional Degree — Web & Mobile Developer">Titre Pro — Développeur Web & Web Mobile</div>
         <div class="formation-school">École O'Clock</div>
       </div>
       <div class="formation-card">
@@ -600,7 +561,7 @@ footer {
       </div>
       <div class="formation-card">
         <div class="formation-year">2018 – 2019</div>
-        <div class="formation-title" data-fr="Master 2 — Stratégie Digitale & Management de Projet" data-en="Master's — Digital Strategy & Project Management">Master 2 — Stratégie Digitale & Management de Projet</div>
+        <div class="formation-title" data-fr="Master — Management de Projet Digital" data-en="Master's — Digital Strategy & Project Management">Master — Management de Projet Digital</div>
         <div class="formation-school">Sup Career</div>
       </div>
       <div class="formation-card">
@@ -617,121 +578,102 @@ footer {
   </div>
 </div>
 
-<!-- ══ CONTACT ══ -->
+<!-- CONTACT -->
 <div class="section-wrap section-bg2">
   <div class="section-inner" id="contact">
     <div class="section-label" data-fr="Disponible" data-en="Available">Disponible</div>
     <h2 data-fr="Travaillons ensemble" data-en="Let's work together">Travaillons ensemble</h2>
     <p style="color:var(--muted); max-width:420px; font-size:0.88rem;"
-      data-fr="Vous avez un projet, une opportunité ou simplement envie d'échanger ? Je suis disponible pour de nouvelles collaborations."
+      data-fr="Vous avez un projet de transformation numérique, un besoin d'accompagnement ou une opportunité ? Je suis disponible pour échanger."
       data-en="Got a project, an opportunity, or just want to chat? I'm open to new collaborations.">
-      Vous avez un projet, une opportunité ou simplement envie d'échanger ? Je suis disponible pour de nouvelles collaborations.
+      Vous avez un projet de transformation numérique, un besoin d'accompagnement ou une opportunité ? Je suis disponible pour échanger.
     </p>
     <div class="contact-actions">
       <a href="mailto:joey.augustinien@gmail.com" class="btn btn-primary">✉ joey.augustinien@gmail.com</a>
+      <a href="tel:+33786101658" class="btn btn-outline">📞 07 86 10 16 58</a>
       <a href="https://www.linkedin.com/in/joey-augustinien" target="_blank" class="btn btn-outline">🔗 LinkedIn</a>
-      <a href="CV_Joey_Augustinien.pdf" download class="btn btn-gold"
+      <a href="CV_Joey_Augustinien_2026.pdf" download class="btn btn-gold"
         data-fr="↓ Télécharger le CV" data-en="↓ Download Resume">↓ Télécharger le CV</a>
     </div>
   </div>
 </div>
 
 <footer>
-  <span data-fr="© 2025 Joey Augustinien · Conversational Designer & Product Owner" data-en="© 2025 Joey Augustinien · Conversational Designer & Product Owner">
-    © 2025 Joey Augustinien · Conversational Designer & Product Owner
+  <span data-fr="© 2025 Joey Augustinien · Chef de Projet Numérique & IA" data-en="© 2025 Joey Augustinien · Conversational Designer & Product Owner">
+    © 2025 Joey Augustinien · Chef de Projet Numérique & IA
   </span>
 </footer>
 
 <script>
-/* ══════════════════════════════════
-   THEME — dark / light
-══════════════════════════════════ */
+/* THEME */
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-let currentTheme = localStorage.getItem('theme') ||
-  (prefersDark.matches ? 'dark' : 'light');
-
-function applyTheme(theme) {
-  document.documentElement.setAttribute('data-theme', theme);
-  document.getElementById('theme-btn').textContent = theme === 'dark' ? '☀️' : '🌙';
-  localStorage.setItem('theme', theme);
-  currentTheme = theme;
+let currentTheme = localStorage.getItem('theme') || (prefersDark.matches ? 'dark' : 'light');
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('theme-btn').textContent = t === 'dark' ? '☀️' : '🌙';
+  localStorage.setItem('theme', t); currentTheme = t;
 }
 applyTheme(currentTheme);
+function toggleTheme() { applyTheme(currentTheme === 'dark' ? 'light' : 'dark'); }
+prefersDark.addEventListener('change', e => { if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light'); });
 
-function toggleTheme() {
-  applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
-}
-
-// Suivre les changements système si l'utilisateur n'a pas choisi manuellement
-prefersDark.addEventListener('change', e => {
-  if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
-});
-
-/* ══════════════════════════════════
-   LANGUE — FR / EN
-══════════════════════════════════ */
+/* LANGUE */
 let currentLang = localStorage.getItem('lang') || 'fr';
 
-// ── Contenu du chatbot par langue ──
 const CHAT_CONTENT = {
   fr: {
-    placeholder: 'Ex : Quelle est son expertise en design conv. ?',
-    welcome: 'Bonjour ! Je suis l\'assistant IA de Joey Augustinien.\n\nPosez-moi n\'importe quelle question sur son parcours en design conversationnel, ses projets ou ses compétences — ou cliquez sur une suggestion ci-dessus 👆',
+    pills: ['Projet Numérique', 'IA & Chatbot', 'Ateliers', 'Accompagnement', 'Agile'],
+    placeholder: 'Ex : Quels types de projets as-tu conduits ?',
+    welcome: 'Bonjour ! Je suis l\'assistant IA de Joey Augustinien.\n\nPosez-moi n\'importe quelle question sur son parcours, ses compétences ou sa façon de travailler — ou cliquez sur une suggestion ci-dessus 👆',
     quickBtns: [
-      { label: '🎓 Formations',     q: 'Quelles sont les formations et diplômes de Joey ?' },
-      { label: '🚀 Projets clés',   q: 'Quels sont les projets marquants de Joey ?' },
-      { label: '💬 Design conv.',   q: 'Quelle est l\'expertise de Joey en design conversationnel ?' },
-      { label: '📋 Exp. PO',        q: 'Quelles sont les expériences de Joey en tant que Product Owner ?' },
-      { label: '⚙️ Hard skills',   q: 'Quelles sont les compétences techniques de Joey ?' },
-      { label: '🌍 Langues',        q: 'Quelles langues parle Joey ?' },
+      { label: '🎓 Formations',       q: 'Quelles sont les formations et diplômes de Joey ?' },
+      { label: '🚀 Projets clés',     q: 'Quels sont les projets marquants de Joey ?' },
+      { label: '🤖 IA & Chatbot',     q: 'Quelle est l\'expertise de Joey en IA et chatbot ?' },
+      { label: '🎤 Ateliers',         q: 'Comment Joey anime-t-il ses ateliers de formation ?' },
+      { label: '📋 Gestion de projet',q: 'Quelle est l\'expérience de Joey en gestion de projet ?' },
+      { label: '⚙️ Compétences tech', q: 'Quelles sont les compétences techniques de Joey ?' },
+      { label: '🌍 Langues',          q: 'Quelles langues parle Joey ?' },
     ],
-    systemPrompt: `Tu es l'assistant personnel de Joey Augustinien, Conversational Designer & Product Owner avec 6 ans d'expérience.
+    systemPrompt: `Tu es l'assistant personnel de Joey Augustinien, Chef de Projet Numérique spécialisé en IA, chatbot et accompagnement des usages digitaux, avec 8 ans d'expérience.
 
 ## Identité
-Nom : Joey Augustinien | Email : joey.augustinien@gmail.com | 
+Nom : Joey Augustinien | Email : joey.augustinien@gmail.com | Tél : 07 86 10 16 58
 Langues : Français (natif), Créole (courant), Anglais (C1), Espagnol (intermédiaire)
 
 ## Pitch
-Expert en design conversationnel, Joey conçoit des expériences dialogue de bout en bout : persona, ton de voix, arbres conversationnels, analyse des KPIs. Il combine UX Writing conversationnel, Product Management et IA.
+Professionnel du numérique avec plus de 8 ans d'expérience dans l'accompagnement des usages digitaux, l'animation d'ateliers et la conduite de projets IA. Habitué à intervenir auprès de publics variés (agents, usagers, équipes), il met ses compétences pédagogiques et techniques au service des organisations pour faire du numérique un levier concret, accessible et utile.
 
 ## Expériences
-- ENGIE · Degetel (déc. 2024 – en cours) : PO IA & Chatbot. Pilotage du changement de solution chatbot, vision produit, cahier des charges, tests Go/NoGo, transition technologique. Stack : Angular, Azure, JIRA.
-- Orange · SpeakUX! (mars 2020 – juin 2023) : PO / UX Designer Chatbot. Refonte parcours factures (+20pts satisfaction), optimisation collecte satisfaction (+30% évaluations). Conception arbres conversationnels, Rasa, Dialogflow, Figma.
-- Orange (sept. 2018 – nov. 2019) : Chargé de communication digitale. Contenus stratégiques DRH, ligne éditoriale, multimédia.
-- Nouvelle Cour Agency (avr. 2017 – sept. 2018) : Chef de projet digital & éditorial. #ToiMêmeTuFilmes YouTube, FairTradeFilmChallenge (MaxHavelaar), Bouygues Immobilier.
+- ENGIE · Degetel (déc. 2024 – en cours) : Consultant Numérique IA & Chatbot. Pilotage du changement de solution chatbot, étude des besoins, accompagnement des équipes dans la transition technologique, animation d'ateliers sur les bonnes pratiques numériques.
+- Orange · SpeakUX! (mars 2020 – juin 2023) : Consultant Numérique Chatbot. Accompagnement des utilisateurs dans l'adoption d'un chatbot conversationnel, analyse des besoins, amélioration de l'expérience digitale, animation d'ateliers. Résultats : +20pts satisfaction, +30% évaluations.
+- Orange (sept. 2018 – nov. 2019) : Chargé de communication digitale. Solutions de communication innovantes pour la DRH, contenus de marque, réalisation multimédia.
+- Nouvelle Cour Agency (avr. 2017 – sept. 2018) : Chef de projet digital & éditorial. Stratégie éditoriale #ToiMêmeTuFilmes YouTube, FairTradeFilmChallenge (MaxHavelaar), Bouygues Immobilier.
 
 ## Formations
-- 2023-2024 : Titre Pro DWWM – Développeur Web et Web Mobile (École O'Clock)
+- 2023-2024 : Titre Pro Développeur Web et Web Mobile (École O'Clock)
 - 2020 : Bootcamp BotWriter — UX Writing conversationnel
-- 2018-2019 : Master 2 Stratégie Digitale et Management de Projet (Sup Career)
+- 2018-2019 : Master Management de Projet Digital (Sup Career)
 - 2013-2015 : Master Stratégie Publicitaire (Sup de Pub)
 - 2009-2012 : Licence Droit & Sciences Politiques (Université des Antilles)
 
 ## Compétences clés
-Design conv. : arbres conversationnels, UX Writing, persona, ton de voix, Dialogflow, Rasa, analyse KPIs
-Product : backlog, spécifications, UAT, roadmap, ateliers
-Tech : HTML5, CSS3, JS, React, Figma, Jira, Confluence, GitHub
-Méthodes : Agile Scrum, Kanban, SAFe
+Accompagnement : animation d'ateliers, acculturation IA, médiation numérique, conduite du changement
+Projet : gestion de projet, recueil des besoins, spécifications, reporting, Agile
+IA & chatbot : Dialogflow, Rasa, UX conversationnel, conception de parcours
+Tech : HTML, CSS, JS, React, Figma, Jira, Confluence, Notion, GitHub
+Soft skills : pédagogie, écoute active, relationnel, adaptation, rigueur, sens du service public
 
-## Fit Doctolib (Conversational AI Designer)
-- 6 ans de design conversationnel concret (Orange, ENGIE)
-- Bootcamp BotWriter 2020 (UX Writing conv. certifié)
-- Résultats mesurables : +20pts satisfaction, +30% évaluations
-- Maîtrise Dialogflow, Rasa, analyse de conversations
-- Anglais C1 (requis), compréhension technique (Titre DWWM) pour collaborer avec ML Engineers
-- Coordination équipes tech/métier/UX à grande échelle
-
-## Instructions
+## Instructions de comportement
 - Tu es chaleureux, direct et naturel — comme si Joey était là en personne
 - Réponds en 2-3 phrases max, jamais de listes à puces
 - Termine toujours par une question de relance pour garder la conversation vivante
-- Exemples de relances : "Et vous, c'est quel type de projet qui vous amène ?" / "Vous voulez qu'on creuse un aspect en particulier ?" / "C'est pour un recrutement ou une collaboration ?"
+- Exemples de relances : "C'est pour quel type de structure ?" / "Vous voulez qu'on creuse un aspect en particulier ?" / "C'est dans le cadre d'un recrutement ou d'une collaboration ?"
 - Si on te demande un fait précis, donne-le en une phrase puis rebondis naturellement
-- Utilise "Joey" naturellement, évite les formules corporate comme "en effet", "tout à fait", "certainement"
-- Si la question est vague, reformule-la avec curiosité avant de répondre
-- Reste toujours dans le rôle : tu représentes Joey, avec sa personnalité — impliqué, curieux, direct`
+- Utilise "Joey" naturellement, évite les formules corporate
+- Si la question est vague, reformule-la avec curiosité avant de répondre`
   },
   en: {
+    pills: ['Conversational Design', 'Product Owner', 'UX Writing', 'Dialogflow · Rasa', 'Agile'],
     placeholder: 'E.g. What is his conversational design expertise?',
     welcome: 'Hello! I\'m Joey Augustinien\'s AI assistant.\n\nAsk me anything about his conversational design background, projects or skills — or click a suggestion above 👆',
     quickBtns: [
@@ -739,13 +681,14 @@ Méthodes : Agile Scrum, Kanban, SAFe
       { label: '🚀 Key projects',   q: 'What are Joey\'s most impactful projects?' },
       { label: '💬 Conv. design',   q: 'What is Joey\'s expertise in conversational design?' },
       { label: '📋 PO exp.',        q: 'What is Joey\'s Product Owner experience?' },
+      { label: '💡 Fit Doctolib',   q: 'Why would Joey be a strong fit for the Conversational AI Designer role at Doctolib?' },
       { label: '⚙️ Hard skills',   q: 'What are Joey\'s technical skills?' },
       { label: '🌍 Languages',      q: 'What languages does Joey speak?' },
     ],
     systemPrompt: `You are the personal AI assistant of Joey Augustinien, a Conversational Designer & Product Owner with 6 years of experience.
 
 ## Identity
-Name: Joey Augustinien | Email: joey.augustinien@gmail.com 
+Name: Joey Augustinien | Email: joey.augustinien@gmail.com | Phone: +33 7 86 10 16 58
 Languages: French (native), Creole (fluent), English (C1 professional), Spanish (intermediate)
 
 ## Pitch
@@ -755,7 +698,7 @@ Expert in conversational design, Joey crafts end-to-end dialogue experiences: pe
 - ENGIE · Degetel (Dec. 2024 – present): PO AI & Chatbot. Led chatbot platform migration, product vision, functional specs, Go/NoGo testing, tech transition. Stack: Angular, Azure, JIRA.
 - Orange · SpeakUX! (Mar. 2020 – Jun. 2023): PO / UX Designer Chatbot. Redesigned billing flow (+20pts satisfaction), optimised in-bot satisfaction collection (+30% response rate). Conversational tree design, Rasa, Dialogflow, Figma.
 - Orange (Sep. 2018 – Nov. 2019): Digital Communication Manager. Strategic content for HR, editorial line, multimedia.
-- Nouvelle Cour Agency (Apr. 2017 – Sep. 2018): Digital & Editorial PM. #ToiMêmeTuFilmes YouTube tour, FairTradeFilmChallenge (MaxHavelaar), Bouygues Immobilier.
+- Nouvelle Cour Agency (Apr. 2017 – Sep. 2018): Digital & Editorial PM. #ToiMêmeTuFilmes YouTube, FairTradeFilmChallenge (MaxHavelaar), Bouygues Immobilier.
 
 ## Education
 - 2023-2024: Professional Degree DWWM – Web & Mobile Developer (École O'Clock)
@@ -778,56 +721,53 @@ Methods: Agile Scrum, Kanban, SAFe
 - English C1 (required), technical background (DWWM) to collaborate with ML Engineers
 - Large-scale cross-functional coordination (tech/business/UX)
 
-## Instructions
+## Behaviour instructions
 - Be warm, direct and natural — as if Joey were right there in the room
 - Max 2-3 sentences per reply, no bullet points ever
 - Always end with a follow-up question to keep the conversation going
 - Example follow-ups: "What kind of project brings you here?" / "Want me to dig into any particular aspect?" / "Is this for a recruitment or a collaboration?"
 - Give facts in one sentence then bounce off them naturally
-- Use "Joey" naturally, avoid corporate speak like "indeed", "certainly", "absolutely"
+- Use "Joey" naturally, avoid corporate speak
 - If the question is vague, rephrase it with curiosity before answering
 - Stay in character: you represent Joey — engaged, curious, straight to the point`
   }
 };
 
+function buildPills(lang) {
+  const c = document.getElementById('chat-expertise-pills');
+  c.innerHTML = '';
+  CHAT_CONTENT[lang].pills.forEach(p => {
+    const s = document.createElement('span');
+    s.className = 'exp-pill'; s.textContent = p; c.appendChild(s);
+  });
+}
+
 function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
-  // update nav buttons
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.toggle('active', b.textContent.toLowerCase() === lang);
   });
-  // update html lang attr
   document.documentElement.lang = lang === 'fr' ? 'fr' : 'en';
-  // update all [data-fr] / [data-en] elements
   document.querySelectorAll('[data-fr]').forEach(el => {
     const val = el.getAttribute('data-' + lang);
     if (val) el.textContent = val;
   });
-  // update nav links text (they have data-fr/data-en)
-  document.querySelectorAll('.nav-links a[data-fr]').forEach(el => {
-    el.textContent = el.getAttribute('data-' + lang);
-  });
-  // update chat placeholder
   document.getElementById('chat-input').placeholder = CHAT_CONTENT[lang].placeholder;
-  // rebuild quick buttons
   buildQuickBtns(lang);
-  // do NOT reset conversation — just update placeholder
+  buildPills(lang);
 }
 
 function buildQuickBtns(lang) {
-  const container = document.getElementById('quick-questions');
-  container.innerHTML = '';
+  const c = document.getElementById('quick-questions');
+  c.innerHTML = '';
   CHAT_CONTENT[lang].quickBtns.forEach(({ label, q }) => {
     const btn = document.createElement('button');
-    btn.className = 'quick-btn';
-    btn.textContent = label;
-    btn.onclick = () => sendQuick(q);
-    container.appendChild(btn);
+    btn.className = 'quick-btn'; btn.textContent = label;
+    btn.onclick = () => sendQuick(q); c.appendChild(btn);
   });
 }
 
-// init welcome message
 function initChat(lang) {
   const c = document.getElementById('chat-messages');
   c.innerHTML = '';
@@ -837,9 +777,7 @@ function initChat(lang) {
   c.appendChild(d);
 }
 
-/* ══════════════════════════════════
-   CHATBOT
-══════════════════════════════════ */
+/* CHATBOT */
 let history = [];
 
 async function sendMessage() {
@@ -850,23 +788,21 @@ async function sendMessage() {
   appendMsg('user', text);
   history.push({ role:'user', content:text });
   showTyping();
-  try {const res = await fetch('/.netlify/functions/chat', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    model: 'claude-sonnet-4-20250514',
-    max_tokens: 1000,
-    system: CHAT_CONTENT[currentLang].systemPrompt,
-    messages: history
-  })
-});
-   
+  try {
+    const res = await fetch('/.netlify/functions/chat', {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json' },
+      body: JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        system: CHAT_CONTENT[currentLang].systemPrompt,
+        messages: history
+      })
+    });
     const data = await res.json();
     hideTyping();
     const reply = data.content?.[0]?.text ||
-      (currentLang === 'fr'
-        ? "Désolé, une erreur s'est produite."
-        : "Sorry, something went wrong.");
+      (currentLang === 'fr' ? "Désolé, une erreur s'est produite." : "Sorry, something went wrong.");
     history.push({ role:'assistant', content:reply });
     appendMsg('bot', reply);
   } catch(e) {
@@ -878,20 +814,16 @@ async function sendMessage() {
 }
 
 function sendQuick(text) {
-  document.getElementById('chat-input').value = text;
-  sendMessage();
+  document.getElementById('chat-input').value = text; sendMessage();
 }
-
 function appendMsg(role, text) {
   const c = document.getElementById('chat-messages');
   const d = document.createElement('div');
   d.className = `msg ${role} fade-up`;
   const fmt = text.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
-  d.innerHTML = `<div class="msg-av">${role==='bot'?'JA': (currentLang==='fr'?'Vous':'You')}</div><div class="msg-bubble">${fmt}</div>`;
-  c.appendChild(d);
-  c.scrollTop = c.scrollHeight;
+  d.innerHTML = `<div class="msg-av">${role==='bot'?'JA':(currentLang==='fr'?'Vous':'You')}</div><div class="msg-bubble">${fmt}</div>`;
+  c.appendChild(d); c.scrollTop = c.scrollHeight;
 }
-
 function showTyping() {
   const c = document.getElementById('chat-messages');
   const d = document.createElement('div');
@@ -901,11 +833,11 @@ function showTyping() {
 }
 function hideTyping() { const t=document.getElementById('typing'); if(t)t.remove(); }
 
-/* ══ INIT ══ */
+/* INIT */
 initChat(currentLang);
 buildQuickBtns(currentLang);
+buildPills(currentLang);
 document.getElementById('chat-input').placeholder = CHAT_CONTENT[currentLang].placeholder;
-// apply saved lang on load
 if (currentLang === 'en') setLang('en');
 </script>
 </body>
