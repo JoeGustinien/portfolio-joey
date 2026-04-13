@@ -4,318 +4,139 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Joey Augustinien — Chef de Projet Numérique & IA</title>
-<!-- DOMPurify — protection XSS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:           #F2EFE9;
-  --bg2:          #FDFCF8;
-  --ink:          #17170E;
-  --accent:       #1E4D33;
-  --accent2:      #C8A96E;
-  --accent-light: #E3EDE7;
-  --muted:        #78786E;
-  --border:       #DEDAD2;
-  --nav-bg:       rgba(242,239,233,0.92);
-  --chat-bg:      #FDFCF8;
-  --msg-bot-bg:   #E3EDE7;
-  --msg-user-bg:  #17170E;
-  --msg-user-c:   #fff;
+  --bg:#F2EFE9; --bg2:#FDFCF8; --ink:#17170E; --accent:#1E4D33; --accent2:#C8A96E;
+  --accent-light:#E3EDE7; --muted:#78786E; --border:#DEDAD2;
+  --nav-bg:rgba(242,239,233,0.92); --chat-bg:#FDFCF8;
+  --msg-bot-bg:#E3EDE7; --msg-user-bg:#17170E; --msg-user-c:#fff;
 }
-
 [data-theme="dark"] {
-  --bg:           #111109;
-  --bg2:          #1A1A12;
-  --ink:          #EDE9DF;
-  --accent:       #4A9165;
-  --accent2:      #C8A96E;
-  --accent-light: #1E3328;
-  --muted:        #8A8A7E;
-  --border:       #2E2E22;
-  --nav-bg:       rgba(17,17,9,0.92);
-  --chat-bg:      #1A1A12;
-  --msg-bot-bg:   #1E3328;
-  --msg-user-bg:  #EDE9DF;
-  --msg-user-c:   #111109;
+  --bg:#111109; --bg2:#1A1A12; --ink:#EDE9DF; --accent:#4A9165; --accent2:#C8A96E;
+  --accent-light:#1E3328; --muted:#8A8A7E; --border:#2E2E22;
+  --nav-bg:rgba(17,17,9,0.92); --chat-bg:#1A1A12;
+  --msg-bot-bg:#1E3328; --msg-user-bg:#EDE9DF; --msg-user-c:#111109;
 }
-
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
-  font-family:'Inter',sans-serif;
-  background:var(--bg); color:var(--ink);
-  font-size:15px; line-height:1.65;
-  transition: background .3s, color .3s;
-}
-
-/* NAV */
-nav {
-  position:fixed; top:0; left:0; right:0; z-index:300;
-  height:50px; display:flex; align-items:center; justify-content:space-between;
-  padding:0 36px;
-  background:var(--nav-bg); backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--border);
-  transition: background .3s, border-color .3s;
-}
-.nav-logo {
-  font-family:'Lora',serif; font-size:0.95rem; font-style:italic;
-  color:var(--ink); text-decoration:none;
-  display:flex; align-items:center; gap:10px;
-}
-.nav-badge {
-  font-family:'Inter',sans-serif; font-style:normal;
-  font-size:0.6rem; font-weight:600; letter-spacing:0.1em;
-  text-transform:uppercase; background:var(--accent); color:#fff;
-  padding:2px 7px; border-radius:2px;
-}
-.nav-right { display:flex; align-items:center; gap:20px; }
-.nav-links { display:flex; gap:24px; list-style:none; align-items:center; }
-.nav-links a {
-  font-size:0.72rem; font-weight:500; letter-spacing:0.07em;
-  text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s;
-}
-.nav-links a:hover { color:var(--accent); }
-.nav-controls { display:flex; align-items:center; gap:8px; }
-.lang-switch {
-  display:flex; border:1px solid var(--border); border-radius:2px; overflow:hidden;
-}
-.lang-btn {
-  padding:4px 9px; font-size:0.65rem; font-weight:600; letter-spacing:0.07em;
-  text-transform:uppercase; background:transparent; border:none;
-  color:var(--muted); cursor:pointer; font-family:'Inter',sans-serif; transition:all .18s;
-}
-.lang-btn.active { background:var(--accent); color:#fff; }
-.lang-btn:not(.active):hover { color:var(--ink); }
-.theme-toggle {
-  width:32px; height:32px; border-radius:2px;
-  border:1px solid var(--border); background:transparent;
-  cursor:pointer; display:flex; align-items:center; justify-content:center;
-  font-size:0.85rem; transition:all .18s; color:var(--muted);
-}
-.theme-toggle:hover { border-color:var(--accent); color:var(--accent); }
-
-/* HERO SPLIT */
-.hero-wrap {
-  min-height:100dvh; display:grid; grid-template-columns:1fr 1fr; padding-top:50px;
-}
-.hero-photo {
-  width:72px; height:72px; border-radius:50%;
-  object-fit:cover; object-position:center top;
-  border:2px solid var(--border); margin-bottom:20px; display:block;
-}
-.hero-left {
-  display:flex; flex-direction:column; justify-content:center;
-  padding:64px 52px; border-right:1px solid var(--border);
-  position:relative; overflow:hidden;
-}
-.hero-left::before {
-  content:''; position:absolute; bottom:-80px; right:-60px;
-  width:280px; height:280px; border-radius:50%;
-  background:radial-gradient(circle, rgba(200,169,110,0.1) 0%, transparent 70%);
-  pointer-events:none;
-}
-.hero-tag {
-  display:inline-flex; align-items:center; gap:8px;
-  font-size:0.65rem; font-weight:600; letter-spacing:0.13em;
-  text-transform:uppercase; color:var(--accent2); margin-bottom:22px;
-}
-.hero-tag::before, .hero-tag::after { content:''; width:22px; height:1px; background:var(--accent2); }
-h1 {
-  font-family:'Lora',serif;
-  font-size:clamp(2.6rem,4.2vw,4.4rem);
-  line-height:1.05; margin-bottom:8px; font-weight:500; color:var(--ink);
-}
-h1 em { font-style:italic; color:var(--accent); }
-.hero-subtitle {
-  font-family:'Lora',serif; font-style:italic;
-  font-size:clamp(0.95rem,1.5vw,1.15rem);
-  color:var(--accent2); margin-bottom:22px; font-weight:400;
-}
-.hero-bio {
-  font-size:0.88rem; color:var(--muted); line-height:1.85;
-  max-width:400px; margin-bottom:32px;
-}
-.pillars {
-  display:flex; margin-bottom:36px;
-  border:1px solid var(--border); border-radius:3px; overflow:hidden;
-}
-.pillar {
-  flex:1; padding:13px 14px; text-align:center;
-  border-right:1px solid var(--border); background:var(--bg2); transition:background .3s;
-}
-.pillar:last-child { border-right:none; }
-.pillar-icon { font-size:1rem; margin-bottom:3px; }
-.pillar-label { font-size:0.6rem; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; color:var(--muted); }
-.pillar-val { font-family:'Lora',serif; font-size:0.9rem; color:var(--ink); margin-top:2px; }
-.hero-actions { display:flex; gap:10px; flex-wrap:wrap; }
-.btn {
-  display:inline-flex; align-items:center; gap:7px;
-  padding:10px 20px; border-radius:2px;
-  font-size:0.72rem; font-weight:600; letter-spacing:0.06em;
-  text-transform:uppercase; cursor:pointer; transition:all .2s;
-  text-decoration:none; border:none; font-family:'Inter',sans-serif;
-}
-.btn-primary { background:var(--accent); color:#fff; }
-.btn-primary:hover { opacity:.88; }
-.btn-gold { background:var(--accent2); color:#fff; }
-.btn-gold:hover { opacity:.88; }
-.btn-outline { background:transparent; color:var(--ink); border:1px solid var(--border); }
-.btn-outline:hover { border-color:var(--ink); }
-.scroll-cue {
-  margin-top:36px; font-size:0.67rem; color:var(--muted);
-  display:flex; align-items:center; gap:8px; letter-spacing:0.07em;
-  text-transform:uppercase; text-decoration:none;
-}
-.scroll-cue:hover { color:var(--accent); }
-
-/* CHAT PANEL */
-.hero-right {
-  display:flex; flex-direction:column;
-  background:var(--chat-bg);
-  height:calc(100dvh - 50px);
-  position:sticky; top:50px; overflow:hidden;
-  transition:background .3s;
-}
-.chat-header {
-  padding:16px 22px 13px; border-bottom:1px solid var(--border);
-  display:flex; align-items:center; gap:12px; flex-shrink:0;
-}
-.chat-av {
-  width:36px; height:36px; border-radius:50%;
-  background:var(--accent); color:#fff;
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Lora',serif; font-style:italic; font-size:0.85rem;
-}
-.chat-header-name { font-weight:600; font-size:0.85rem; }
-.chat-header-sub {
-  font-size:0.67rem; color:var(--muted);
-  display:flex; align-items:center; gap:5px; margin-top:1px;
-}
-.online-dot { width:6px; height:6px; border-radius:50%; background:#5DB37E; flex-shrink:0; }
-.chat-expertise {
-  padding:9px 18px; border-bottom:1px solid var(--border);
-  display:flex; gap:6px; flex-wrap:wrap; flex-shrink:0;
-}
-.exp-pill {
-  font-size:0.62rem; font-weight:600; letter-spacing:0.05em;
-  text-transform:uppercase; padding:3px 8px;
-  border:1px solid var(--border); border-radius:100px;
-  color:var(--muted); background:var(--bg2);
-}
-.quick-area {
-  padding:10px 18px 8px; border-bottom:1px solid var(--border); flex-shrink:0;
-}
-.quick-label {
-  font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em;
-  color:var(--muted); margin-bottom:7px; font-weight:600;
-}
-.quick-questions { display:flex; flex-wrap:wrap; gap:6px; }
-.quick-btn {
-  font-size:0.7rem; padding:5px 11px;
-  background:var(--accent-light); color:var(--accent);
-  border:1px solid var(--border); border-radius:100px;
-  cursor:pointer; font-family:'Inter',sans-serif; font-weight:500;
-  transition:all .18s; white-space:nowrap;
-}
-.quick-btn:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
-.chat-messages {
-  flex:1; overflow-y:auto; padding:18px 16px;
-  display:flex; flex-direction:column; gap:12px; min-height:0;
-}
-.chat-messages::-webkit-scrollbar { width:3px; }
-.chat-messages::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
-.msg { display:flex; gap:9px; max-width:90%; }
-.msg.user { align-self:flex-end; flex-direction:row-reverse; }
-.msg-av {
-  width:26px; height:26px; border-radius:50%; flex-shrink:0;
-  display:flex; align-items:center; justify-content:center;
-  font-size:0.56rem; font-weight:700;
-}
-.msg.bot .msg-av { background:var(--accent); color:#fff; }
-.msg.user .msg-av { background:var(--ink); color:var(--bg); }
-.msg-bubble { padding:10px 13px; border-radius:3px; font-size:0.82rem; line-height:1.7; }
-.msg.bot .msg-bubble { background:var(--msg-bot-bg); color:var(--ink); }
-.msg.user .msg-bubble { background:var(--msg-user-bg); color:var(--msg-user-c); }
-.typing-indicator { display:flex; gap:4px; align-items:center; padding:10px 13px; }
-.typing-dot { width:5px; height:5px; border-radius:50%; background:var(--accent); animation:blink 1.2s infinite; }
-.typing-dot:nth-child(2) { animation-delay:.2s; }
-.typing-dot:nth-child(3) { animation-delay:.4s; }
-.chat-input-row { display:flex; border-top:1px solid var(--border); flex-shrink:0; }
-#chat-input {
-  flex:1; padding:13px 15px; border:none; outline:none;
-  background:transparent; font-family:'Inter',sans-serif;
-  font-size:0.83rem; color:var(--ink); resize:none;
-}
-#chat-input::placeholder { color:var(--muted); }
-#send-btn {
-  width:48px; background:var(--accent); border:none;
-  cursor:pointer; color:#fff; font-size:0.9rem; transition:opacity .2s; flex-shrink:0;
-}
-#send-btn:hover { opacity:.85; }
-
-/* SECTIONS */
-.section-wrap { border-top:1px solid var(--border); }
-.section-bg2 { background:var(--bg2); transition:background .3s; }
-.section-inner { max-width:1080px; margin:0 auto; padding:84px 52px; }
-.section-label {
-  font-size:0.62rem; font-weight:600; letter-spacing:0.14em;
-  text-transform:uppercase; color:var(--accent2); margin-bottom:10px;
-}
-h2 {
-  font-family:'Lora',serif; font-weight:500;
-  font-size:clamp(1.7rem,3vw,2.4rem); margin-bottom:46px; color:var(--ink);
-}
-.timeline { position:relative; padding-left:22px; }
-.timeline::before { content:''; position:absolute; left:0; top:6px; bottom:0; width:1px; background:var(--border); }
-.tl-item { position:relative; padding-left:26px; margin-bottom:40px; }
-.tl-dot { position:absolute; left:-27px; top:7px; width:9px; height:9px; border-radius:50%; background:var(--accent2); border:2px solid var(--bg); }
-.tl-date { font-size:0.65rem; color:var(--muted); letter-spacing:0.07em; text-transform:uppercase; margin-bottom:4px; font-weight:500; }
-.tl-company { font-family:'Lora',serif; font-size:1.15rem; margin-bottom:3px; font-weight:500; color:var(--ink); }
-.tl-role { font-size:0.78rem; font-weight:600; color:var(--accent); margin-bottom:10px; }
-.tl-desc { font-size:0.84rem; color:var(--muted); max-width:580px; }
-.tl-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:11px; }
-.tag { font-size:0.63rem; padding:3px 8px; background:var(--accent-light); color:var(--accent); border-radius:2px; font-weight:600; }
-.skills-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; }
-.skill-card {
-  background:var(--bg); border:1px solid var(--border);
-  padding:22px; border-radius:3px; transition:border-color .2s,transform .2s,background .3s;
-}
-.skill-card:hover { border-color:var(--accent2); transform:translateY(-2px); }
-.skill-card-title { font-size:0.63rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent2); margin-bottom:13px; }
-.skill-list { list-style:none; }
-.skill-list li { font-size:0.82rem; padding:5px 0; border-bottom:1px solid var(--border); color:var(--ink); }
-.skill-list li:last-child { border-bottom:none; }
-.formations-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; }
-.formation-card {
-  background:var(--bg); border:1px solid var(--border);
-  padding:20px; border-radius:3px; display:flex; flex-direction:column; gap:6px; transition:background .3s;
-}
-.formation-year { font-size:0.63rem; font-weight:700; color:var(--accent2); letter-spacing:0.1em; text-transform:uppercase; }
-.formation-title { font-family:'Lora',serif; font-size:0.95rem; line-height:1.3; font-weight:500; color:var(--ink); }
-.formation-school { font-size:0.76rem; color:var(--muted); }
-.contact-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:28px; }
-footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--muted); border-top:1px solid var(--border); }
-
-@keyframes blink { 0%,80%,100%{opacity:.2} 40%{opacity:1} }
-@keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-.fade-up { animation:fadeUp .4s ease forwards; }
-
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.65;transition:background .3s,color .3s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:var(--nav-bg);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s;}
+.nav-logo{font-family:'Lora',serif;font-size:0.95rem;font-style:italic;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px;}
+.nav-badge{font-family:'Inter',sans-serif;font-style:normal;font-size:0.6rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;background:var(--accent);color:#fff;padding:2px 7px;border-radius:2px;}
+.nav-right{display:flex;align-items:center;gap:20px;}
+.nav-links{display:flex;gap:24px;list-style:none;align-items:center;}
+.nav-links a{font-size:0.72rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-controls{display:flex;align-items:center;gap:8px;}
+.lang-switch{display:flex;border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+.lang-btn{padding:4px 9px;font-size:0.65rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;background:transparent;border:none;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif;transition:all .18s;}
+.lang-btn.active{background:var(--accent);color:#fff;}
+.lang-btn:not(.active):hover{color:var(--ink);}
+.theme-toggle{width:32px;height:32px;border-radius:2px;border:1px solid var(--border);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.85rem;transition:all .18s;color:var(--muted);}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent);}
+.hero-wrap{min-height:100dvh;display:grid;grid-template-columns:1fr 1fr;padding-top:50px;}
+.hero-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--border);margin-bottom:20px;display:block;}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:64px 52px;border-right:1px solid var(--border);position:relative;overflow:hidden;}
+.hero-left::before{content:'';position:absolute;bottom:-80px;right:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(200,169,110,0.1) 0%,transparent 70%);pointer-events:none;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:0.65rem;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--accent2);margin-bottom:22px;}
+.hero-tag::before,.hero-tag::after{content:'';width:22px;height:1px;background:var(--accent2);}
+h1{font-family:'Lora',serif;font-size:clamp(2.6rem,4.2vw,4.4rem);line-height:1.05;margin-bottom:8px;font-weight:500;color:var(--ink);}
+h1 em{font-style:italic;color:var(--accent);}
+.hero-subtitle{font-family:'Lora',serif;font-style:italic;font-size:clamp(0.95rem,1.5vw,1.15rem);color:var(--accent2);margin-bottom:22px;font-weight:400;}
+.hero-bio{font-size:0.88rem;color:var(--muted);line-height:1.85;max-width:400px;margin-bottom:32px;}
+.pillars{display:flex;margin-bottom:36px;border:1px solid var(--border);border-radius:3px;overflow:hidden;}
+.pillar{flex:1;padding:13px 14px;text-align:center;border-right:1px solid var(--border);background:var(--bg2);transition:background .3s;}
+.pillar:last-child{border-right:none;}
+.pillar-icon{font-size:1rem;margin-bottom:3px;}
+.pillar-label{font-size:0.6rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);}
+.pillar-val{font-family:'Lora',serif;font-size:0.9rem;color:var(--ink);margin-top:2px;}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:2px;font-size:0.72rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all .2s;text-decoration:none;border:none;font-family:'Inter',sans-serif;}
+.btn-primary{background:var(--accent);color:#fff;}.btn-primary:hover{opacity:.88;}
+.btn-gold{background:var(--accent2);color:#fff;}.btn-gold:hover{opacity:.88;}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--border);}.btn-outline:hover{border-color:var(--ink);}
+.scroll-cue{margin-top:36px;font-size:0.67rem;color:var(--muted);display:flex;align-items:center;gap:8px;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;}
+.scroll-cue:hover{color:var(--accent);}
+.hero-right{display:flex;flex-direction:column;background:var(--chat-bg);height:calc(100dvh - 50px);position:sticky;top:50px;overflow:hidden;transition:background .3s;}
+.chat-header{padding:16px 22px 13px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.chat-av{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-style:italic;font-size:0.85rem;}
+.chat-header-name{font-weight:600;font-size:0.85rem;}
+.chat-header-sub{font-size:0.67rem;color:var(--muted);display:flex;align-items:center;gap:5px;margin-top:1px;}
+.online-dot{width:6px;height:6px;border-radius:50%;background:#5DB37E;flex-shrink:0;}
+.chat-expertise{padding:9px 18px;border-bottom:1px solid var(--border);display:flex;gap:6px;flex-wrap:wrap;flex-shrink:0;}
+.exp-pill{font-size:0.62rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:3px 8px;border:1px solid var(--border);border-radius:100px;color:var(--muted);background:var(--bg2);}
+.quick-area{padding:10px 18px 8px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.quick-label{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:7px;font-weight:600;}
+.quick-questions{display:flex;flex-wrap:wrap;gap:6px;}
+.quick-btn{font-size:0.7rem;padding:5px 11px;background:var(--accent-light);color:var(--accent);border:1px solid var(--border);border-radius:100px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:500;transition:all .18s;white-space:nowrap;}
+.quick-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.chat-messages{flex:1;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:12px;min-height:0;}
+.chat-messages::-webkit-scrollbar{width:3px;}
+.chat-messages::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+.msg{display:flex;gap:9px;max-width:90%;}
+.msg.user{align-self:flex-end;flex-direction:row-reverse;}
+.msg-av{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.56rem;font-weight:700;}
+.msg.bot .msg-av{background:var(--accent);color:#fff;}
+.msg.user .msg-av{background:var(--ink);color:var(--bg);}
+.msg-bubble{padding:10px 13px;border-radius:3px;font-size:0.82rem;line-height:1.7;}
+.msg.bot .msg-bubble{background:var(--msg-bot-bg);color:var(--ink);}
+.msg.user .msg-bubble{background:var(--msg-user-bg);color:var(--msg-user-c);}
+.typing-indicator{display:flex;gap:4px;align-items:center;padding:10px 13px;}
+.typing-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:blink 1.2s infinite;}
+.typing-dot:nth-child(2){animation-delay:.2s;}
+.typing-dot:nth-child(3){animation-delay:.4s;}
+.chat-input-row{display:flex;border-top:1px solid var(--border);flex-shrink:0;}
+#chat-input{flex:1;padding:13px 15px;border:none;outline:none;background:transparent;font-family:'Inter',sans-serif;font-size:0.83rem;color:var(--ink);resize:none;}
+#chat-input::placeholder{color:var(--muted);}
+#send-btn{width:48px;background:var(--accent);border:none;cursor:pointer;color:#fff;font-size:0.9rem;transition:opacity .2s;flex-shrink:0;}
+#send-btn:hover{opacity:.85;}
+.section-wrap{border-top:1px solid var(--border);}
+.section-bg2{background:var(--bg2);transition:background .3s;}
+.section-inner{max-width:1080px;margin:0 auto;padding:84px 52px;}
+.section-label{font-size:0.62rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:10px;}
+h2{font-family:'Lora',serif;font-weight:500;font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:46px;color:var(--ink);}
+.timeline{position:relative;padding-left:22px;}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:0;width:1px;background:var(--border);}
+.tl-item{position:relative;padding-left:26px;margin-bottom:40px;}
+.tl-dot{position:absolute;left:-27px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--accent2);border:2px solid var(--bg);}
+.tl-date{font-size:0.65rem;color:var(--muted);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:4px;font-weight:500;}
+.tl-company{font-family:'Lora',serif;font-size:1.15rem;margin-bottom:3px;font-weight:500;color:var(--ink);}
+.tl-role{font-size:0.78rem;font-weight:600;color:var(--accent);margin-bottom:10px;}
+.tl-desc{font-size:0.84rem;color:var(--muted);max-width:580px;}
+.tl-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px;}
+.tag{font-size:0.63rem;padding:3px 8px;background:var(--accent-light);color:var(--accent);border-radius:2px;font-weight:600;}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+.skill-card{background:var(--bg);border:1px solid var(--border);padding:22px;border-radius:3px;transition:border-color .2s,transform .2s,background .3s;}
+.skill-card:hover{border-color:var(--accent2);transform:translateY(-2px);}
+.skill-card-title{font-size:0.63rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:13px;}
+.skill-list{list-style:none;}
+.skill-list li{font-size:0.82rem;padding:5px 0;border-bottom:1px solid var(--border);color:var(--ink);}
+.skill-list li:last-child{border-bottom:none;}
+.formations-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+.formation-card{background:var(--bg);border:1px solid var(--border);padding:20px;border-radius:3px;display:flex;flex-direction:column;gap:6px;transition:background .3s;}
+.formation-year{font-size:0.63rem;font-weight:700;color:var(--accent2);letter-spacing:0.1em;text-transform:uppercase;}
+.formation-title{font-family:'Lora',serif;font-size:0.95rem;line-height:1.3;font-weight:500;color:var(--ink);}
+.formation-school{font-size:0.76rem;color:var(--muted);}
+.contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;}
+footer{text-align:center;padding:28px 40px;font-size:0.72rem;color:var(--muted);border-top:1px solid var(--border);}
+@keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .4s ease forwards;}
 @media(max-width:820px){
-  .hero-wrap { grid-template-columns:1fr; min-height:auto; }
-  .hero-left { padding:68px 24px 40px; border-right:none; border-bottom:1px solid var(--border); }
-  .hero-right { height:72vh; position:relative; top:0; }
-  nav { padding:0 16px; }
-  .nav-links { display:none; }
-  .section-inner { padding:60px 24px; }
-  .scroll-cue { display:none; }
+  .hero-wrap{grid-template-columns:1fr;min-height:auto;}
+  .hero-left{padding:68px 24px 40px;border-right:none;border-bottom:1px solid var(--border);}
+  .hero-right{height:72vh;position:relative;top:0;}
+  nav{padding:0 16px;}
+  .nav-links{display:none;}
+  .section-inner{padding:60px 24px;}
+  .scroll-cue{display:none;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
     Joey Augustinien
@@ -338,27 +159,17 @@ footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--mu
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero-wrap" id="home">
   <div class="hero-left">
     <img src="Joey_Augustinien_PP.jpeg" alt="Joey Augustinien" class="hero-photo">
-    <div class="hero-tag"
-      data-fr="Chef de Projet Numérique · IA & Chatbot"
-      data-en="Conversational Designer · Product Owner">
-      Chef de Projet Numérique · IA & Chatbot
-    </div>
+    <div class="hero-tag" data-fr="Chef de Projet Numérique · IA & Chatbot" data-en="Conversational Designer · Product Owner">Chef de Projet Numérique · IA & Chatbot</div>
     <h1>Joey<br><em>Augustinien</em></h1>
-    <div class="hero-subtitle"
-      data-fr="J'accompagne les organisations dans leur transformation numérique."
-      data-en="I design conversations that make a difference.">
-      J'accompagne les organisations dans leur transformation numérique.
-    </div>
+    <div class="hero-subtitle" data-fr="J'accompagne les organisations dans leur transformation numérique." data-en="I design conversations that make a difference.">J'accompagne les organisations dans leur transformation numérique.</div>
     <p class="hero-bio"
       data-fr="8 ans d'expérience dans l'accompagnement des usages digitaux, l'animation d'ateliers et la conduite de projets IA. J'interviens auprès d'équipes variées pour faire du numérique un levier concret, accessible et utile."
       data-en="6 years turning user journeys into seamless conversational experiences — at Orange, ENGIE and beyond. From persona definition to KPI analysis, I drive conversational products end to end.">
       8 ans d'expérience dans l'accompagnement des usages digitaux, l'animation d'ateliers et la conduite de projets IA. J'interviens auprès d'équipes variées pour faire du numérique un levier concret, accessible et utile.
     </p>
-
     <div class="pillars">
       <div class="pillar">
         <div class="pillar-icon">🎓</div>
@@ -376,19 +187,13 @@ footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--mu
         <div class="pillar-val">+20pts NPS</div>
       </div>
     </div>
-
     <div class="hero-actions">
-      <a href="/cdn-cgi/l/email-protection#5e34313b27703f2b392b2d2a3730373b301e39333f3732703d3133" class="btn btn-primary" data-fr="✉ Me contacter" data-en="✉ Get in touch">✉ Me contacter</a>
-      <a href="CV_Joey_Augustinien_2026.pdf" download class="btn btn-gold"
-        data-fr="↓ CV" data-en="↓ Resume">↓ CV</a>
+      <a href="mailto:joey.augustinien@gmail.com" class="btn btn-primary" data-fr="✉ Me contacter" data-en="✉ Get in touch">✉ Me contacter</a>
+      <a href="CV_Joey_Augustinien_2026.pdf" download class="btn btn-gold" data-fr="↓ CV" data-en="↓ Resume">↓ CV</a>
     </div>
-    <a href="#experience" class="scroll-cue"
-      data-fr="↓  Voir le parcours complet" data-en="↓  Full experience">
-      ↓ &nbsp;Voir le parcours complet
-    </a>
+    <a href="#experience" class="scroll-cue" data-fr="↓  Voir le parcours complet" data-en="↓  Full experience">↓ &nbsp;Voir le parcours complet</a>
   </div>
 
-  <!-- CHAT -->
   <div class="hero-right">
     <div class="chat-header">
       <div class="chat-av">JA</div>
@@ -400,100 +205,66 @@ footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--mu
         </div>
       </div>
     </div>
-    <div class="chat-expertise" id="chat-expertise-pills">
-      <!-- injected by JS -->
-    </div>
+    <div class="chat-expertise" id="chat-expertise-pills"></div>
     <div class="quick-area">
       <div class="quick-label" data-fr="Questions rapides" data-en="Quick questions">Questions rapides</div>
       <div class="quick-questions" id="quick-questions"></div>
     </div>
     <div class="chat-messages" id="chat-messages"></div>
     <div class="chat-input-row">
-      <textarea id="chat-input" rows="1"
+      <textarea id="chat-input" rows="1" placeholder="Ex : Quels types de projets as-tu conduits ?"
         onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage();}"></textarea>
       <button id="send-btn" onclick="sendMessage()">➤</button>
     </div>
   </div>
 </div>
 
-<!-- EXPERIENCE -->
 <div class="section-wrap">
   <div class="section-inner" id="experience">
     <div class="section-label" data-fr="Parcours" data-en="Career">Parcours</div>
     <h2 data-fr="Expériences professionnelles" data-en="Professional Experience">Expériences professionnelles</h2>
     <div class="timeline">
-
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date" data-fr="Déc. 2024 → En cours" data-en="Dec. 2024 → Present">Déc. 2024 → En cours</div>
         <div class="tl-company">ENGIE · Degetel</div>
-        <div class="tl-role"
-          data-fr="Consultant Numérique — IA & Chatbot"
-          data-en="Product Owner AI & Chatbot">Consultant Numérique — IA & Chatbot</div>
-        <div class="tl-desc"
-          data-fr="Pilotage du changement de solution chatbot : étude des besoins, accompagnement des équipes dans la transition technologique, animation d'ateliers de formation autour des bonnes pratiques numériques."
-          data-en="Led a chatbot platform migration: defined product vision, scoped objectives, gathered requirements, wrote functional specifications. Conducted tests, Go/NoGo decisions and supported teams through the tech transition.">
-          Pilotage du changement de solution chatbot : étude des besoins, accompagnement des équipes dans la transition technologique, animation d'ateliers de formation autour des bonnes pratiques numériques.
-        </div>
+        <div class="tl-role" data-fr="Consultant Numérique — IA & Chatbot" data-en="Product Owner AI & Chatbot">Consultant Numérique — IA & Chatbot</div>
+        <div class="tl-desc" data-fr="Pilotage du changement de solution chatbot : étude des besoins, accompagnement des équipes dans la transition technologique, animation d'ateliers de formation autour des bonnes pratiques numériques." data-en="Led a chatbot platform migration: defined product vision, scoped objectives, gathered requirements, wrote functional specifications. Conducted tests, Go/NoGo decisions and supported teams through the tech transition.">Pilotage du changement de solution chatbot : étude des besoins, accompagnement des équipes dans la transition technologique, animation d'ateliers de formation autour des bonnes pratiques numériques.</div>
         <div class="tl-tags"><span class="tag">Conduite du changement</span><span class="tag">Ateliers</span><span class="tag">IA</span><span class="tag">Chatbot</span></div>
       </div>
-
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date" data-fr="Mars 2020 → Juin 2023" data-en="Mar. 2020 → Jun. 2023">Mars 2020 → Juin 2023</div>
         <div class="tl-company">Orange · SpeakUX!</div>
-        <div class="tl-role"
-          data-fr="Consultant Numérique Chatbot"
-          data-en="PO / UX Designer Chatbot">Consultant Numérique Chatbot</div>
-        <div class="tl-desc"
-          data-fr="Accompagnement des utilisateurs dans l'adoption d'un chatbot conversationnel. Analyse des besoins, amélioration de l'expérience digitale, animation d'ateliers. Résultats : +20 pts de satisfaction client, +30 % d'évaluations."
-          data-en="Redesigned the billing explanation flow → +20 pts customer satisfaction. Optimised in-bot satisfaction collection → +30% response rate. Designed conversational trees, analysed conversations, managed product backlog.">
-          Accompagnement des utilisateurs dans l'adoption d'un chatbot conversationnel. Analyse des besoins, amélioration de l'expérience digitale, animation d'ateliers. Résultats : <strong>+20 pts de satisfaction</strong>, <strong>+30 % d'évaluations</strong>.
-        </div>
+        <div class="tl-role" data-fr="Consultant Numérique Chatbot" data-en="PO / UX Designer Chatbot">Consultant Numérique Chatbot</div>
+        <div class="tl-desc" data-fr="Accompagnement des utilisateurs dans l'adoption d'un chatbot conversationnel. Analyse des besoins, amélioration de l'expérience digitale, animation d'ateliers. Résultats : +20 pts de satisfaction client, +30 % d'évaluations." data-en="Redesigned the billing explanation flow → +20 pts customer satisfaction. Optimised in-bot satisfaction collection → +30% response rate. Designed conversational trees, analysed conversations, managed product backlog.">Accompagnement des utilisateurs dans l'adoption d'un chatbot conversationnel. Analyse des besoins, amélioration de l'expérience digitale, animation d'ateliers. Résultats : <strong>+20 pts de satisfaction</strong>, <strong>+30 % d'évaluations</strong>.</div>
         <div class="tl-tags"><span class="tag">Adoption digitale</span><span class="tag">UX</span><span class="tag">Ateliers</span><span class="tag">Chatbot</span><span class="tag">Agile</span></div>
       </div>
-
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date" data-fr="Sept. 2018 → Nov. 2019" data-en="Sep. 2018 → Nov. 2019">Sept. 2018 → Nov. 2019</div>
         <div class="tl-company">Orange</div>
-        <div class="tl-role"
-          data-fr="Chargé de communication digitale"
-          data-en="Digital Communication Manager">Chargé de communication digitale</div>
-        <div class="tl-desc"
-          data-fr="Propositions de solutions de communication innovantes pour la DRH. Création et publication de contenus liés à la marque (interne et externe). Réalisation multimédia : photo, vidéo, intégration web."
-          data-en="Produced strategic content for the HR Support Functions. Managed internal and external editorial lines, multimedia integration and communication performance analysis.">
-          Propositions de solutions de communication innovantes pour la DRH. Création et publication de contenus liés à la marque (interne et externe). Réalisation multimédia : photo, vidéo, intégration web.
-        </div>
+        <div class="tl-role" data-fr="Chargé de communication digitale" data-en="Digital Communication Manager">Chargé de communication digitale</div>
+        <div class="tl-desc" data-fr="Propositions de solutions de communication innovantes pour la DRH. Création et publication de contenus liés à la marque. Réalisation multimédia : photo, vidéo, intégration web." data-en="Produced strategic content for the HR Support Functions. Managed internal and external editorial lines, multimedia integration and communication performance analysis.">Propositions de solutions de communication innovantes pour la DRH. Création et publication de contenus liés à la marque. Réalisation multimédia : photo, vidéo, intégration web.</div>
         <div class="tl-tags"><span class="tag">Communication</span><span class="tag">Éditorial</span><span class="tag">Multimédia</span><span class="tag">HTML/CSS</span></div>
       </div>
-
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date" data-fr="Avr. 2017 → Sept. 2018" data-en="Apr. 2017 → Sep. 2018">Avr. 2017 → Sept. 2018</div>
         <div class="tl-company">Nouvelle Cour Agency</div>
-        <div class="tl-role"
-          data-fr="Chef de projet digital & éditorial"
-          data-en="Digital & Editorial Project Manager">Chef de projet digital & éditorial</div>
-        <div class="tl-desc"
-          data-fr="Gestion de projet et stratégie éditoriale pour #ToiMêmeTuFilmes (YouTube France). Gestion du projet web FairTradeFilmChallenge (MaxHavelaar). Contenus digitaux pour Bouygues Immobilier."
-          data-en="Editorial strategy for the YouTube France tour #ToiMêmeTuFilmes. Managed the FairTradeFilmChallenge web project (MaxHavelaar). Audiovisual content for Bouygues Immobilier.">
-          Gestion de projet et stratégie éditoriale pour #ToiMêmeTuFilmes (YouTube France). Gestion du projet web FairTradeFilmChallenge (MaxHavelaar). Contenus digitaux pour Bouygues Immobilier.
-        </div>
+        <div class="tl-role" data-fr="Chef de projet digital & éditorial" data-en="Digital & Editorial Project Manager">Chef de projet digital & éditorial</div>
+        <div class="tl-desc" data-fr="Gestion de projet et stratégie éditoriale pour #ToiMêmeTuFilmes (YouTube France). Gestion du projet web FairTradeFilmChallenge (MaxHavelaar). Contenus digitaux pour Bouygues Immobilier." data-en="Editorial strategy for the YouTube France tour #ToiMêmeTuFilmes. Managed the FairTradeFilmChallenge web project (MaxHavelaar). Audiovisual content for Bouygues Immobilier.">Gestion de projet et stratégie éditoriale pour #ToiMêmeTuFilmes (YouTube France). Gestion du projet web FairTradeFilmChallenge (MaxHavelaar). Contenus digitaux pour Bouygues Immobilier.</div>
         <div class="tl-tags"><span class="tag">Gestion de projet</span><span class="tag">Stratégie digitale</span><span class="tag">Audiovisuel</span></div>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- COMPETENCES -->
 <div class="section-wrap section-bg2">
   <div class="section-inner" id="competences">
     <div class="section-label" data-fr="Savoir-faire" data-en="Expertise">Savoir-faire</div>
     <h2 data-fr="Compétences" data-en="Skills">Compétences</h2>
     <div class="skills-grid">
-
       <div class="skill-card">
         <div class="skill-card-title" data-fr="Accompagnement & Pédagogie" data-en="Conversational Design">Accompagnement & Pédagogie</div>
         <ul class="skill-list">
@@ -505,7 +276,6 @@ footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--mu
           <li data-fr="Sens du service public" data-en="User testing & iterations">Sens du service public</li>
         </ul>
       </div>
-
       <div class="skill-card">
         <div class="skill-card-title" data-fr="Gestion de Projet & IA" data-en="Product Management">Gestion de Projet & IA</div>
         <ul class="skill-list">
@@ -517,7 +287,6 @@ footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--mu
           <li data-fr="Méthodologies Agiles" data-en="Functional testing (UAT)">Méthodologies Agiles</li>
         </ul>
       </div>
-
       <div class="skill-card">
         <div class="skill-card-title" data-fr="Tech & Outils" data-en="Tech & Tools">Tech & Outils</div>
         <ul class="skill-list">
@@ -528,7 +297,6 @@ footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--mu
           <li>Suite Adobe</li>
         </ul>
       </div>
-
       <div class="skill-card">
         <div class="skill-card-title" data-fr="Soft Skills" data-en="Methods & Soft Skills">Soft Skills</div>
         <ul class="skill-list">
@@ -539,12 +307,10 @@ footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--mu
           <li data-fr="Adaptation & initiative" data-en="Agile Scrum · Kanban · SAFe">Adaptation & initiative</li>
         </ul>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- FORMATIONS -->
 <div class="section-wrap">
   <div class="section-inner" id="formations">
     <div class="section-label" data-fr="Cursus" data-en="Education">Cursus</div>
@@ -579,22 +345,20 @@ footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--mu
   </div>
 </div>
 
-<!-- CONTACT -->
 <div class="section-wrap section-bg2">
   <div class="section-inner" id="contact">
     <div class="section-label" data-fr="Disponible" data-en="Available">Disponible</div>
     <h2 data-fr="Travaillons ensemble" data-en="Let's work together">Travaillons ensemble</h2>
-    <p style="color:var(--muted); max-width:420px; font-size:0.88rem;"
+    <p style="color:var(--muted);max-width:420px;font-size:0.88rem;"
       data-fr="Vous avez un projet de transformation numérique, un besoin d'accompagnement ou une opportunité ? Je suis disponible pour échanger."
       data-en="Got a project, an opportunity, or just want to chat? I'm open to new collaborations.">
       Vous avez un projet de transformation numérique, un besoin d'accompagnement ou une opportunité ? Je suis disponible pour échanger.
     </p>
     <div class="contact-actions">
-      <a href="/cdn-cgi/l/email-protection#4b21242e32652a3e2c3e383f2225222e250b2c262a222765282426" class="btn btn-primary">✉ <span class="__cf_email__" data-cfemail="771d18120e591602100204031e191e121937101a161e1b5914181a">[email&#160;protected]</span></a>
+      <a href="mailto:joey.augustinien@gmail.com" class="btn btn-primary">✉ Me contacter</a>
       <a href="tel:+33786101658" class="btn btn-outline">📞 07 86 10 16 58</a>
       <a href="https://www.linkedin.com/in/joey-augustinien" target="_blank" class="btn btn-outline">🔗 LinkedIn</a>
-      <a href="CV_Joey_Augustinien_2026.pdf" download class="btn btn-gold"
-        data-fr="↓ Télécharger le CV" data-en="↓ Download Resume">↓ Télécharger le CV</a>
+      <a href="CV_Joey_Augustinien_2026.pdf" download class="btn btn-gold" data-fr="↓ Télécharger le CV" data-en="↓ Download Resume">↓ Télécharger le CV</a>
     </div>
   </div>
 </div>
@@ -605,166 +369,201 @@ footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--mu
   </span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* THEME */
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-let currentTheme = localStorage.getItem('theme') || (prefersDark.matches ? 'dark' : 'light');
+<script>
+/* ── THEME ── */
+var prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+var currentTheme = localStorage.getItem('theme') || (prefersDark.matches ? 'dark' : 'light');
 function applyTheme(t) {
   document.documentElement.setAttribute('data-theme', t);
-  document.getElementById('theme-btn').textContent = t === 'dark' ? '☀️' : '🌙';
-  localStorage.setItem('theme', t); currentTheme = t;
+  var btn = document.getElementById('theme-btn');
+  if (btn) btn.textContent = t === 'dark' ? '☀️' : '🌙';
+  localStorage.setItem('theme', t);
+  currentTheme = t;
 }
 applyTheme(currentTheme);
 function toggleTheme() { applyTheme(currentTheme === 'dark' ? 'light' : 'dark'); }
-prefersDark.addEventListener('change', e => { if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light'); });
+prefersDark.addEventListener('change', function(e) {
+  if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
+});
 
-/* LANGUE */
-let currentLang = localStorage.getItem('lang') || 'fr';
+/* ── LANGUE ── */
+var currentLang = localStorage.getItem('lang') || 'fr';
 
-// ─── CHAT CONTENT (system prompts déplacés côté serveur) ───────────────────
-const CHAT_CONTENT = {
+var CHAT_CONTENT = {
   fr: {
     pills: ['Projet Numérique', 'IA & Chatbot', 'Ateliers', 'Accompagnement', 'Agile'],
     placeholder: 'Ex : Quels types de projets as-tu conduits ?',
     welcome: 'Bonjour ! Je suis l\'assistant IA de Joey Augustinien.\n\nPosez-moi n\'importe quelle question sur son parcours, ses compétences ou sa façon de travailler — ou cliquez sur une suggestion ci-dessus 👆',
     quickBtns: [
-      { label: '🎓 Formations',       q: 'Quelles sont les formations et diplômes de Joey ?' },
-      { label: '🚀 Projets clés',     q: 'Quels sont les projets marquants de Joey ?' },
-      { label: '🤖 IA & Chatbot',     q: 'Quelle est l\'expertise de Joey en IA et chatbot ?' },
-      { label: '🎤 Ateliers',         q: 'Comment Joey anime-t-il ses ateliers de formation ?' },
-      { label: '📋 Gestion de projet',q: 'Quelle est l\'expérience de Joey en gestion de projet ?' },
-      { label: '⚙️ Compétences tech', q: 'Quelles sont les compétences techniques de Joey ?' },
-      { label: '🌍 Langues',          q: 'Quelles langues parle Joey ?' },
-    ],
+      { label: '🎓 Formations',        q: 'Quelles sont les formations et diplômes de Joey ?' },
+      { label: '🚀 Projets clés',      q: 'Quels sont les projets marquants de Joey ?' },
+      { label: '🤖 IA & Chatbot',      q: "Quelle est l'expertise de Joey en IA et chatbot ?" },
+      { label: '🎤 Ateliers',          q: 'Comment Joey anime-t-il ses ateliers de formation ?' },
+      { label: '📋 Gestion de projet', q: "Quelle est l'expérience de Joey en gestion de projet ?" },
+      { label: '⚙️ Compétences tech',  q: 'Quelles sont les compétences techniques de Joey ?' },
+      { label: '🌍 Langues',           q: 'Quelles langues parle Joey ?' }
+    ]
   },
   en: {
     pills: ['Conversational Design', 'Product Owner', 'UX Writing', 'Dialogflow · Rasa', 'Agile'],
     placeholder: 'E.g. What is his conversational design expertise?',
-    welcome: 'Hello! I\'m Joey Augustinien\'s AI assistant.\n\nAsk me anything about his conversational design background, projects or skills — or click a suggestion above 👆',
+    welcome: "Hello! I'm Joey Augustinien's AI assistant.\n\nAsk me anything about his background, projects or skills — or click a suggestion above 👆",
     quickBtns: [
-      { label: '🎓 Education',      q: 'What are Joey\'s degrees and certifications?' },
-      { label: '🚀 Key projects',   q: 'What are Joey\'s most impactful projects?' },
-      { label: '💬 Conv. design',   q: 'What is Joey\'s expertise in conversational design?' },
-      { label: '📋 PO exp.',        q: 'What is Joey\'s Product Owner experience?' },
-      { label: '💡 Fit Doctolib',   q: 'Why would Joey be a strong fit for the Conversational AI Designer role at Doctolib?' },
-      { label: '⚙️ Hard skills',   q: 'What are Joey\'s technical skills?' },
-      { label: '🌍 Languages',      q: 'What languages does Joey speak?' },
-    ],
+      { label: '🎓 Education',    q: "What are Joey's degrees and certifications?" },
+      { label: '🚀 Key projects', q: "What are Joey's most impactful projects?" },
+      { label: '💬 Conv. design', q: "What is Joey's expertise in conversational design?" },
+      { label: '📋 PO exp.',      q: "What is Joey's Product Owner experience?" },
+      { label: '⚙️ Hard skills', q: "What are Joey's technical skills?" },
+      { label: '🌍 Languages',    q: 'What languages does Joey speak?' }
+    ]
   }
 };
 
 function buildPills(lang) {
-  const c = document.getElementById('chat-expertise-pills');
+  var c = document.getElementById('chat-expertise-pills');
+  if (!c) return;
   c.innerHTML = '';
-  CHAT_CONTENT[lang].pills.forEach(p => {
-    const s = document.createElement('span');
-    s.className = 'exp-pill'; s.textContent = p; c.appendChild(s);
+  CHAT_CONTENT[lang].pills.forEach(function(p) {
+    var s = document.createElement('span');
+    s.className = 'exp-pill';
+    s.textContent = p;
+    c.appendChild(s);
   });
 }
 
 function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
-  document.querySelectorAll('.lang-btn').forEach(b => {
+  document.querySelectorAll('.lang-btn').forEach(function(b) {
     b.classList.toggle('active', b.textContent.toLowerCase() === lang);
   });
   document.documentElement.lang = lang === 'fr' ? 'fr' : 'en';
-  document.querySelectorAll('[data-fr]').forEach(el => {
-    const val = el.getAttribute('data-' + lang);
+  document.querySelectorAll('[data-fr]').forEach(function(el) {
+    var val = el.getAttribute('data-' + lang);
     if (val) el.textContent = val;
   });
-  document.getElementById('chat-input').placeholder = CHAT_CONTENT[lang].placeholder;
+  var inp = document.getElementById('chat-input');
+  if (inp) inp.placeholder = CHAT_CONTENT[lang].placeholder;
   buildQuickBtns(lang);
   buildPills(lang);
 }
 
 function buildQuickBtns(lang) {
-  const c = document.getElementById('quick-questions');
+  var c = document.getElementById('quick-questions');
+  if (!c) return;
   c.innerHTML = '';
-  CHAT_CONTENT[lang].quickBtns.forEach(({ label, q }) => {
-    const btn = document.createElement('button');
-    btn.className = 'quick-btn'; btn.textContent = label;
-    btn.onclick = () => sendQuick(q); c.appendChild(btn);
+  CHAT_CONTENT[lang].quickBtns.forEach(function(item) {
+    var btn = document.createElement('button');
+    btn.className = 'quick-btn';
+    btn.textContent = item.label;
+    (function(q) { btn.onclick = function() { sendQuick(q); }; })(item.q);
+    c.appendChild(btn);
   });
 }
 
 function initChat(lang) {
-  const c = document.getElementById('chat-messages');
+  var c = document.getElementById('chat-messages');
+  if (!c) return;
   c.innerHTML = '';
-  const d = document.createElement('div');
+  var d = document.createElement('div');
   d.className = 'msg bot fade-up';
-  d.innerHTML = `<div class="msg-av">JA</div><div class="msg-bubble">${CHAT_CONTENT[lang].welcome.replace(/\n/g,'<br>')}</div>`;
+  var welcome = CHAT_CONTENT[lang].welcome.replace(/\n/g, '<br>');
+  d.innerHTML = '<div class="msg-av">JA</div><div class="msg-bubble">' + welcome + '</div>';
   c.appendChild(d);
 }
 
-/* CHATBOT */
-let history = [];
+/* ── CHATBOT ── */
+var chatHistory = [];
 
-// Limite la longueur de l'input côté client avant envoi
 function sanitizeInput(text) {
   return text.slice(0, 500).replace(/<[^>]*>/g, '').trim();
 }
 
-async function sendMessage() {
-  const input = document.getElementById('chat-input');
-  const raw = input.value.trim();
+function sendMessage() {
+  var input = document.getElementById('chat-input');
+  var raw = input.value.trim();
   if (!raw) return;
-  const text = sanitizeInput(raw);
+  var text = sanitizeInput(raw);
   if (!text) return;
   input.value = '';
   appendMsg('user', text);
-  history.push({ role:'user', content:text });
-  // Garde max 20 tours en mémoire côté client
-  if (history.length > 40) history = history.slice(-40);
+  chatHistory.push({ role: 'user', content: text });
+  if (chatHistory.length > 40) chatHistory = chatHistory.slice(-40);
   showTyping();
-  try {
-    const res = await fetch('/.netlify/functions/chat', {
-      method:'POST',
-      headers:{ 'Content-Type':'application/json' },
-      body: JSON.stringify({
-        lang: currentLang,   // la langue — le system prompt est géré côté serveur
-        messages: history
-      })
-    });
+
+  fetch('/.netlify/functions/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ lang: currentLang, messages: chatHistory })
+  })
+  .then(function(res) {
     if (res.status === 429) {
       hideTyping();
       appendMsg('bot', currentLang === 'fr'
         ? "Vous avez atteint la limite de messages. Réessayez dans une heure."
         : "You've reached the message limit. Please try again in an hour.");
-      return;
+      return null;
     }
-    const data = await res.json();
+    return res.json();
+  })
+  .then(function(data) {
+    if (!data) return;
     hideTyping();
-    const reply = data.content?.[0]?.text ||
-      (currentLang === 'fr' ? "Désolé, une erreur s'est produite." : "Sorry, something went wrong.");
-    history.push({ role:'assistant', content:reply });
+    var reply = (data.content && data.content[0] && data.content[0].text)
+      ? data.content[0].text
+      : (currentLang === 'fr' ? "Désolé, une erreur s'est produite." : "Sorry, something went wrong.");
+    chatHistory.push({ role: 'assistant', content: reply });
     appendMsg('bot', reply);
-  } catch(e) {
+  })
+  .catch(function() {
     hideTyping();
     appendMsg('bot', currentLang === 'fr'
       ? "Désolé, je ne peux pas répondre pour l'instant."
       : "Sorry, I can't respond right now.");
-  }
+  });
 }
 
 function sendQuick(text) {
-  document.getElementById('chat-input').value = text; sendMessage();
+  document.getElementById('chat-input').value = text;
+  sendMessage();
 }
+
 function appendMsg(role, text) {
-  const c = document.getElementById('chat-messages');
-  const d = document.createElement('div');
-  d.className = `msg ${role} fade-up`;
-  // Formatage basique puis sanitisation XSS avec DOMPurify
-  const raw = text.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
-  const safe = DOMPurify.sanitize(raw, { ALLOWED_TAGS: ['br','strong'], ALLOWED_ATTR: [] });
-  d.innerHTML = `<div class="msg-av">${role==='bot'?'JA':(currentLang==='fr'?'Vous':'You')}</div><div class="msg-bubble">${safe}</div>`;
-  c.appendChild(d); c.scrollTop = c.scrollHeight;
+  var c = document.getElementById('chat-messages');
+  var d = document.createElement('div');
+  d.className = 'msg ' + role + ' fade-up';
+  var escaped = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  var fmt = escaped.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  var av = role === 'bot' ? 'JA' : (currentLang === 'fr' ? 'Vous' : 'You');
+  d.innerHTML = '<div class="msg-av">' + av + '</div><div class="msg-bubble">' + fmt + '</div>';
+  c.appendChild(d);
+  c.scrollTop = c.scrollHeight;
 }
+
 function showTyping() {
-  const c = document.getElementById('chat-messages');
-  const d = document.createElement('div');
-  d.className='msg bot'; d.id='typing';
-  d.innerHTML=`<div class="msg-av">JA</div><div class="msg-bubble"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
-  c.appendChild(d); c.scrollTop=c.scrollHeight;
+  var c = document.getElementById('chat-messages');
+  var d = document.createElement('div');
+  d.className = 'msg bot';
+  d.id = 'typing';
+  d.innerHTML = '<div class="msg-av">JA</div><div class="msg-bubble"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>';
+  c.appendChild(d);
+  c.scrollTop = c.scrollHeight;
 }
-function hideTyping() { const t = document.getElementById('typing'); if (t) t.remove(); }
+
+function hideTyping() {
+  var t = document.getElementById('typing');
+  if (t) t.remove();
+}
+
+/* ── INIT ── */
+document.addEventListener('DOMContentLoaded', function() {
+  buildPills(currentLang);
+  buildQuickBtns(currentLang);
+  initChat(currentLang);
+  document.querySelectorAll('.lang-btn').forEach(function(b) {
+    b.classList.toggle('active', b.textContent.toLowerCase() === currentLang);
+  });
+});
+</script>
+</body>
+</html>
