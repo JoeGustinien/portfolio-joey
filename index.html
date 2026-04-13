@@ -767,4 +767,4 @@ function showTyping() {
   d.innerHTML=`<div class="msg-av">JA</div><div class="msg-bubble"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
   c.appendChild(d); c.scrollTop=c.scrollHeight;
 }
-function hideTyping() { const t=doc
+function hideTyping() { const t = document.getElementById('typing'); if (t) t.remove(); }
