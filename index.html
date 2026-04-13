@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Joey Augustinien — Chef de Projet Numérique & IA</title>
+<!-- DOMPurify — protection XSS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -376,8 +378,7 @@ footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--mu
     </div>
 
     <div class="hero-actions">
-      <a href="mailto:joey.augustinien@gmail.com" class="btn btn-primary"
-        data-fr="✉ Me contacter" data-en="✉ Get in touch">✉ Me contacter</a>
+      <a href="/cdn-cgi/l/email-protection#5e34313b27703f2b392b2d2a3730373b301e39333f3732703d3133" class="btn btn-primary" data-fr="✉ Me contacter" data-en="✉ Get in touch">✉ Me contacter</a>
       <a href="CV_Joey_Augustinien_2026.pdf" download class="btn btn-gold"
         data-fr="↓ CV" data-en="↓ Resume">↓ CV</a>
     </div>
@@ -589,7 +590,7 @@ footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--mu
       Vous avez un projet de transformation numérique, un besoin d'accompagnement ou une opportunité ? Je suis disponible pour échanger.
     </p>
     <div class="contact-actions">
-      <a href="mailto:joey.augustinien@gmail.com" class="btn btn-primary">✉ joey.augustinien@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#4b21242e32652a3e2c3e383f2225222e250b2c262a222765282426" class="btn btn-primary">✉ <span class="__cf_email__" data-cfemail="771d18120e591602100204031e191e121937101a161e1b5914181a">[email&#160;protected]</span></a>
       <a href="tel:+33786101658" class="btn btn-outline">📞 07 86 10 16 58</a>
       <a href="https://www.linkedin.com/in/joey-augustinien" target="_blank" class="btn btn-outline">🔗 LinkedIn</a>
       <a href="CV_Joey_Augustinien_2026.pdf" download class="btn btn-gold"
@@ -604,7 +605,7 @@ footer { text-align:center; padding:28px 40px; font-size:0.72rem; color:var(--mu
   </span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* THEME */
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 let currentTheme = localStorage.getItem('theme') || (prefersDark.matches ? 'dark' : 'light');
@@ -620,6 +621,7 @@ prefersDark.addEventListener('change', e => { if (!localStorage.getItem('theme')
 /* LANGUE */
 let currentLang = localStorage.getItem('lang') || 'fr';
 
+// ─── CHAT CONTENT (system prompts déplacés côté serveur) ───────────────────
 const CHAT_CONTENT = {
   fr: {
     pills: ['Projet Numérique', 'IA & Chatbot', 'Ateliers', 'Accompagnement', 'Agile'],
@@ -634,43 +636,6 @@ const CHAT_CONTENT = {
       { label: '⚙️ Compétences tech', q: 'Quelles sont les compétences techniques de Joey ?' },
       { label: '🌍 Langues',          q: 'Quelles langues parle Joey ?' },
     ],
-    systemPrompt: `Tu es l'assistant personnel de Joey Augustinien, Chef de Projet Numérique spécialisé en IA, chatbot et accompagnement des usages digitaux, avec 8 ans d'expérience.
-
-## Identité
-Nom : Joey Augustinien | Email : joey.augustinien@gmail.com | Tél : 07 86 10 16 58
-Langues : Français (natif), Créole (courant), Anglais (C1), Espagnol (intermédiaire)
-
-## Pitch
-Professionnel du numérique avec plus de 8 ans d'expérience dans l'accompagnement des usages digitaux, l'animation d'ateliers et la conduite de projets IA. Habitué à intervenir auprès de publics variés (agents, usagers, équipes), il met ses compétences pédagogiques et techniques au service des organisations pour faire du numérique un levier concret, accessible et utile.
-
-## Expériences
-- ENGIE · Degetel (déc. 2024 – en cours) : Consultant Numérique IA & Chatbot. Pilotage du changement de solution chatbot, étude des besoins, accompagnement des équipes dans la transition technologique, animation d'ateliers sur les bonnes pratiques numériques.
-- Orange · SpeakUX! (mars 2020 – juin 2023) : Consultant Numérique Chatbot. Accompagnement des utilisateurs dans l'adoption d'un chatbot conversationnel, analyse des besoins, amélioration de l'expérience digitale, animation d'ateliers. Résultats : +20pts satisfaction, +30% évaluations.
-- Orange (sept. 2018 – nov. 2019) : Chargé de communication digitale. Solutions de communication innovantes pour la DRH, contenus de marque, réalisation multimédia.
-- Nouvelle Cour Agency (avr. 2017 – sept. 2018) : Chef de projet digital & éditorial. Stratégie éditoriale #ToiMêmeTuFilmes YouTube, FairTradeFilmChallenge (MaxHavelaar), Bouygues Immobilier.
-
-## Formations
-- 2023-2024 : Titre Pro Développeur Web et Web Mobile (École O'Clock)
-- 2020 : Bootcamp BotWriter — UX Writing conversationnel
-- 2018-2019 : Master Management de Projet Digital (Sup Career)
-- 2013-2015 : Master Stratégie Publicitaire (Sup de Pub)
-- 2009-2012 : Licence Droit & Sciences Politiques (Université des Antilles)
-
-## Compétences clés
-Accompagnement : animation d'ateliers, acculturation IA, médiation numérique, conduite du changement
-Projet : gestion de projet, recueil des besoins, spécifications, reporting, Agile
-IA & chatbot : Dialogflow, Rasa, UX conversationnel, conception de parcours
-Tech : HTML, CSS, JS, React, Figma, Jira, Confluence, Notion, GitHub
-Soft skills : pédagogie, écoute active, relationnel, adaptation, rigueur, sens du service public
-
-## Instructions de comportement
-- Tu es chaleureux, direct et naturel — comme si Joey était là en personne
-- Réponds en 2-3 phrases max, jamais de listes à puces
-- Termine toujours par une question de relance pour garder la conversation vivante
-- Exemples de relances : "C'est pour quel type de structure ?" / "Vous voulez qu'on creuse un aspect en particulier ?" / "C'est dans le cadre d'un recrutement ou d'une collaboration ?"
-- Si on te demande un fait précis, donne-le en une phrase puis rebondis naturellement
-- Utilise "Joey" naturellement, évite les formules corporate
-- Si la question est vague, reformule-la avec curiosité avant de répondre`
   },
   en: {
     pills: ['Conversational Design', 'Product Owner', 'UX Writing', 'Dialogflow · Rasa', 'Agile'],
@@ -685,51 +650,6 @@ Soft skills : pédagogie, écoute active, relationnel, adaptation, rigueur, sens
       { label: '⚙️ Hard skills',   q: 'What are Joey\'s technical skills?' },
       { label: '🌍 Languages',      q: 'What languages does Joey speak?' },
     ],
-    systemPrompt: `You are the personal AI assistant of Joey Augustinien, a Conversational Designer & Product Owner with 6 years of experience.
-
-## Identity
-Name: Joey Augustinien | Email: joey.augustinien@gmail.com | Phone: +33 7 86 10 16 58
-Languages: French (native), Creole (fluent), English (C1 professional), Spanish (intermediate)
-
-## Pitch
-Expert in conversational design, Joey crafts end-to-end dialogue experiences: persona, tone of voice, conversational flows, KPI analysis. He combines conversational UX Writing, Product Management and AI expertise.
-
-## Experience
-- ENGIE · Degetel (Dec. 2024 – present): PO AI & Chatbot. Led chatbot platform migration, product vision, functional specs, Go/NoGo testing, tech transition. Stack: Angular, Azure, JIRA.
-- Orange · SpeakUX! (Mar. 2020 – Jun. 2023): PO / UX Designer Chatbot. Redesigned billing flow (+20pts satisfaction), optimised in-bot satisfaction collection (+30% response rate). Conversational tree design, Rasa, Dialogflow, Figma.
-- Orange (Sep. 2018 – Nov. 2019): Digital Communication Manager. Strategic content for HR, editorial line, multimedia.
-- Nouvelle Cour Agency (Apr. 2017 – Sep. 2018): Digital & Editorial PM. #ToiMêmeTuFilmes YouTube, FairTradeFilmChallenge (MaxHavelaar), Bouygues Immobilier.
-
-## Education
-- 2023-2024: Professional Degree DWWM – Web & Mobile Developer (École O'Clock)
-- 2020: BotWriter Bootcamp — Conversational UX Writing
-- 2018-2019: Master's in Digital Strategy & Project Management (Sup Career)
-- 2013-2015: Master's in Advertising Strategy (Sup de Pub)
-- 2009-2012: Bachelor's in Law & Political Science (Université des Antilles)
-
-## Key skills
-Conv. design: conversational flows, UX Writing, persona, tone of voice, Dialogflow, Rasa, KPI analysis
-Product: backlog, specs, UAT, roadmap, workshops
-Tech: HTML5, CSS3, JS, React, Figma, Jira, Confluence, GitHub
-Methods: Agile Scrum, Kanban, SAFe
-
-## Fit for Doctolib (Conversational AI Designer)
-- 6 years of hands-on conversational design (Orange, ENGIE)
-- BotWriter Bootcamp 2020 (certified conversational UX Writing)
-- Measurable results: +20pts satisfaction, +30% evaluation rate
-- Proficient in Dialogflow, Rasa, conversation analysis
-- English C1 (required), technical background (DWWM) to collaborate with ML Engineers
-- Large-scale cross-functional coordination (tech/business/UX)
-
-## Behaviour instructions
-- Be warm, direct and natural — as if Joey were right there in the room
-- Max 2-3 sentences per reply, no bullet points ever
-- Always end with a follow-up question to keep the conversation going
-- Example follow-ups: "What kind of project brings you here?" / "Want me to dig into any particular aspect?" / "Is this for a recruitment or a collaboration?"
-- Give facts in one sentence then bounce off them naturally
-- Use "Joey" naturally, avoid corporate speak
-- If the question is vague, rephrase it with curiosity before answering
-- Stay in character: you represent Joey — engaged, curious, straight to the point`
   }
 };
 
@@ -780,25 +700,39 @@ function initChat(lang) {
 /* CHATBOT */
 let history = [];
 
+// Limite la longueur de l'input côté client avant envoi
+function sanitizeInput(text) {
+  return text.slice(0, 500).replace(/<[^>]*>/g, '').trim();
+}
+
 async function sendMessage() {
   const input = document.getElementById('chat-input');
-  const text = input.value.trim();
+  const raw = input.value.trim();
+  if (!raw) return;
+  const text = sanitizeInput(raw);
   if (!text) return;
   input.value = '';
   appendMsg('user', text);
   history.push({ role:'user', content:text });
+  // Garde max 20 tours en mémoire côté client
+  if (history.length > 40) history = history.slice(-40);
   showTyping();
   try {
     const res = await fetch('/.netlify/functions/chat', {
       method:'POST',
       headers:{ 'Content-Type':'application/json' },
       body: JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        system: CHAT_CONTENT[currentLang].systemPrompt,
+        lang: currentLang,   // la langue — le system prompt est géré côté serveur
         messages: history
       })
     });
+    if (res.status === 429) {
+      hideTyping();
+      appendMsg('bot', currentLang === 'fr'
+        ? "Vous avez atteint la limite de messages. Réessayez dans une heure."
+        : "You've reached the message limit. Please try again in an hour.");
+      return;
+    }
     const data = await res.json();
     hideTyping();
     const reply = data.content?.[0]?.text ||
@@ -808,8 +742,8 @@ async function sendMessage() {
   } catch(e) {
     hideTyping();
     appendMsg('bot', currentLang === 'fr'
-      ? "Désolé, je ne peux pas répondre pour l'instant. Contactez Joey : joey.augustinien@gmail.com"
-      : "Sorry, I can't respond right now. Contact Joey at joey.augustinien@gmail.com");
+      ? "Désolé, je ne peux pas répondre pour l'instant."
+      : "Sorry, I can't respond right now.");
   }
 }
 
@@ -820,8 +754,10 @@ function appendMsg(role, text) {
   const c = document.getElementById('chat-messages');
   const d = document.createElement('div');
   d.className = `msg ${role} fade-up`;
-  const fmt = text.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
-  d.innerHTML = `<div class="msg-av">${role==='bot'?'JA':(currentLang==='fr'?'Vous':'You')}</div><div class="msg-bubble">${fmt}</div>`;
+  // Formatage basique puis sanitisation XSS avec DOMPurify
+  const raw = text.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
+  const safe = DOMPurify.sanitize(raw, { ALLOWED_TAGS: ['br','strong'], ALLOWED_ATTR: [] });
+  d.innerHTML = `<div class="msg-av">${role==='bot'?'JA':(currentLang==='fr'?'Vous':'You')}</div><div class="msg-bubble">${safe}</div>`;
   c.appendChild(d); c.scrollTop = c.scrollHeight;
 }
 function showTyping() {
@@ -831,14 +767,4 @@ function showTyping() {
   d.innerHTML=`<div class="msg-av">JA</div><div class="msg-bubble"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
   c.appendChild(d); c.scrollTop=c.scrollHeight;
 }
-function hideTyping() { const t=document.getElementById('typing'); if(t)t.remove(); }
-
-/* INIT */
-initChat(currentLang);
-buildQuickBtns(currentLang);
-buildPills(currentLang);
-document.getElementById('chat-input').placeholder = CHAT_CONTENT[currentLang].placeholder;
-if (currentLang === 'en') setLang('en');
-</script>
-</body>
-</html>
+function hideTyping() { const t=doc
