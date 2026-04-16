@@ -122,6 +122,16 @@ h2{font-family:'Lora',serif;font-weight:500;font-size:clamp(1.7rem,3vw,2.4rem);m
 .formation-school{font-size:0.76rem;color:var(--muted);}
 .contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;}
 footer{text-align:center;padding:28px 40px;font-size:0.72rem;color:var(--muted);border-top:1px solid var(--border);}
+footer a{color:var(--muted);text-decoration:underline;cursor:pointer;background:none;border:none;font-size:0.72rem;font-family:'Inter',sans-serif;padding:0;}
+footer a:hover{color:var(--accent);}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:500;align-items:center;justify-content:center;padding:24px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:var(--bg2);border:1px solid var(--border);border-radius:4px;max-width:600px;width:100%;max-height:80vh;overflow-y:auto;padding:40px;position:relative;}
+.modal-box h3{font-family:'Lora',serif;font-size:1.3rem;margin-bottom:20px;color:var(--ink);}
+.modal-box h4{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent2);margin:20px 0 8px;}
+.modal-box p{font-size:0.83rem;color:var(--muted);line-height:1.75;margin-bottom:10px;}
+.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--muted);}
+.modal-close:hover{color:var(--ink);}
 @keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{animation:fadeUp .4s ease forwards;}
@@ -365,10 +375,55 @@ footer{text-align:center;padding:28px 40px;font-size:0.72rem;color:var(--muted);
 </div>
 
 <footer>
-  <span data-fr="© 2025 Joey Augustinien · Chef de Projet Numérique & IA" data-en="© 2025 Joey Augustinien · Conversational Designer & Product Owner">
-    © 2025 Joey Augustinien · Chef de Projet Numérique & IA
+  <span data-fr="© 2026 Joey Augustinien · Chef de Projet Numérique" data-en="© 2026 Joey Augustinien · Conversational Designer & Product Owner">
+    © 2026 Joey Augustinien · Chef de Projet Numérique
   </span>
+  <span style="margin:0 10px;">·</span>
+  <button onclick="document.getElementById('modal-ml').classList.add('open')">Mentions légales</button>
+  <span style="margin:0 10px;">·</span>
+  <button onclick="document.getElementById('modal-pc').classList.add('open')">Politique de confidentialité</button>
 </footer>
+
+<!-- Modal Mentions légales -->
+<div class="modal-overlay" id="modal-ml" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('modal-ml').classList.remove('open')">✕</button>
+    <h3>Mentions légales</h3>
+    <h4>Éditeur</h4>
+    <p>Joey Augustinien — personne physique<br>
+    Email : <a href="mailto:joey.augustinien@gmail.com" style="color:var(--accent)">joey.augustinien@gmail.com</a></p>
+    <h4>Hébergement</h4>
+    <p>Netlify, Inc.<br>
+    512 2nd Street, Suite 200<br>
+    San Francisco, CA 94107, États-Unis<br>
+    <a href="https://www.netlify.com" target="_blank" style="color:var(--accent)">netlify.com</a></p>
+    <h4>Propriété intellectuelle</h4>
+    <p>L'ensemble du contenu de ce site (textes, visuels, code) est la propriété exclusive de Joey Augustinien. Toute reproduction sans autorisation préalable est interdite.</p>
+  </div>
+</div>
+
+<!-- Modal Politique de confidentialité -->
+<div class="modal-overlay" id="modal-pc" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('modal-pc').classList.remove('open')">✕</button>
+    <h3>Politique de confidentialité</h3>
+    <h4>Données collectées</h4>
+    <p>Ce site ne collecte aucune donnée personnelle à des fins de tracking ou de publicité. Lors de l'utilisation du chatbot, le message envoyé ainsi que votre adresse IP sont enregistrés à des fins d'analyse qualitative et de prévention des abus.</p>
+    <h4>Base légale</h4>
+    <p>Le traitement repose sur l'intérêt légitime de l'éditeur (amélioration du service, protection contre les abus).</p>
+    <h4>Durée de conservation</h4>
+    <p>Les données sont conservées 6 mois maximum, puis supprimées.</p>
+    <h4>Sous-traitants</h4>
+    <p><strong>Netlify</strong> — hébergement du site (États-Unis)<br>
+    <strong>Anthropic</strong> — traitement des messages du chatbot (États-Unis)<br>
+    <strong>Airtable</strong> — stockage des logs du chatbot (États-Unis)<br>
+    <strong>Google</strong> — polices de caractères (Google Fonts)</p>
+    <h4>Vos droits</h4>
+    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour toute demande : <a href="mailto:joey.augustinien@gmail.com" style="color:var(--accent)">joey.augustinien@gmail.com</a></p>
+    <h4>Cookies</h4>
+    <p>Ce site utilise uniquement le stockage local (localStorage) pour mémoriser vos préférences de langue et de thème. Aucun cookie de tracking n'est déposé.</p>
+  </div>
+</div>
 
 <script>
 /* ── THEME ── */
