@@ -120,6 +120,29 @@ function sanitizeHistory(messages) {
     .filter(m => m.content.length > 0);
 }
 
+// ─── Log Airtable (non-bloquant) ───────────────────────────────────────────
+async function logToAirtable(message, lang, ip) {
+  try {
+    await fetch("https://api.airtable.com/v0/appF5BHZh4bDpabQs/Questions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.AIRTABLE_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fields: {
+          message,
+          langue: lang,
+          ip,
+          date: new Date().toISOString(),
+        },
+      }),
+    });
+  } catch (err) {
+    console.error("Airtable log error:", err);
+  }
+}
+
 // ─── Handler principal ─────────────────────────────────────────────────────
 exports.handler = async (event) => {
   const headers = {
@@ -165,6 +188,10 @@ exports.handler = async (event) => {
   if (!messages.length || messages[messages.length - 1].role !== "user") {
     return { statusCode: 400, headers, body: JSON.stringify({ error: "Message invalide" }) };
   }
+
+  // ── Log Airtable ──
+  const userMessage = messages[messages.length - 1].content;
+  logToAirtable(userMessage, lang, ip); // non-bloquant, pas de await
 
   // ── Appel Anthropic ──
   try {
