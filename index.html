@@ -151,7 +151,7 @@ footer a:hover,footer button:hover{color:var(--accent);}
 <nav>
   <a href="#" class="nav-logo">
     Joey Augustinien
-    <span class="nav-badge" data-fr="Projet Numérique" data-en="Conv. Design">Projet Numérique</span>
+    <span class="nav-badge" data-fr="Projet Numérique" data-en="PM · AI">Projet Numérique</span>
   </a>
   <div class="nav-right">
     <ul class="nav-links">
@@ -162,8 +162,8 @@ footer a:hover,footer button:hover{color:var(--accent);}
     </ul>
     <div class="nav-controls">
       <div class="lang-switch">
-        <button class="lang-btn active" onclick="setLang('fr')">FR</button>
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn active" onclick="setLang('fr', true)">FR</button>
+        <button class="lang-btn" onclick="setLang('en', true)">EN</button>
       </div>
       <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">🌙</button>
     </div>
@@ -173,24 +173,24 @@ footer a:hover,footer button:hover{color:var(--accent);}
 <div class="hero-wrap" id="home">
   <div class="hero-left">
     <img src="Joey_Augustinien_PP.jpeg" alt="Joey Augustinien" class="hero-photo">
-    <div class="hero-tag" data-fr="Chef de Projet Numérique · IA & Chatbot" data-en="Conversational Designer · Product Owner">Chef de Projet Numérique · IA & Chatbot</div>
+    <div class="hero-tag" data-fr="Chef de Projet Numérique · IA & Chatbot" data-en="Product Manager · AI">Chef de Projet Numérique · IA & Chatbot</div>
     <h1>Joey<br><em>Augustinien</em></h1>
-    <div class="hero-subtitle" data-fr="J'accompagne les organisations dans leur transformation numérique." data-en="I design conversations that make a difference.">J'accompagne les organisations dans leur transformation numérique.</div>
+    <div class="hero-subtitle" data-fr="J'accompagne les organisations dans leur transformation numérique." data-en="I build AI products. For real users.">J'accompagne les organisations dans leur transformation numérique.</div>
     <p class="hero-bio"
       data-fr="8 ans d'expérience dans l'accompagnement des usages digitaux, l'animation d'ateliers et la conduite de projets IA. J'interviens auprès d'équipes variées pour faire du numérique un levier concret, accessible et utile."
-      data-en="6 years turning user journeys into seamless conversational experiences — at Orange, ENGIE and beyond. From persona definition to KPI analysis, I drive conversational products end to end.">
+      data-en="6 years building AI-powered support products at Orange and ENGIE — from product vision to production monitoring. I bridge engineering and Care teams to ship AI agents that automate conversations faster and better.">
       8 ans d'expérience dans l'accompagnement des usages digitaux, l'animation d'ateliers et la conduite de projets IA. J'interviens auprès d'équipes variées pour faire du numérique un levier concret, accessible et utile.
     </p>
     <div class="pillars">
       <div class="pillar">
         <div class="pillar-icon">🎓</div>
-        <div class="pillar-label" data-fr="Pédagogie" data-en="Dialogue">Pédagogie</div>
-        <div class="pillar-val" data-fr="Ateliers & formation" data-en="Conv. UX">Ateliers</div>
+        <div class="pillar-label" data-fr="Pédagogie" data-en="AI Agent">Pédagogie</div>
+        <div class="pillar-val" data-fr="Ateliers & formation" data-en="LLM · Chatbot">Ateliers</div>
       </div>
       <div class="pillar">
         <div class="pillar-icon">🤖</div>
-        <div class="pillar-label" data-fr="IA & Chatbot" data-en="Product">IA & Chatbot</div>
-        <div class="pillar-val" data-fr="Expert 6 ans" data-en="PO · Agile">Expert 6 ans</div>
+        <div class="pillar-label" data-fr="IA & Chatbot" data-en="Customer Support">IA & Chatbot</div>
+        <div class="pillar-val" data-fr="Expert 6 ans" data-en="Care automation">Expert 6 ans</div>
       </div>
       <div class="pillar">
         <div class="pillar-icon">⚡</div>
@@ -240,16 +240,27 @@ footer a:hover,footer button:hover{color:var(--accent);}
         <div class="tl-date" data-fr="Déc. 2024 → En cours" data-en="Dec. 2024 → Present">Déc. 2024 → En cours</div>
         <div class="tl-company">ENGIE · Degetel</div>
         <div class="tl-role" data-fr="Consultant Numérique — IA & Chatbot" data-en="Product Owner AI & Chatbot">Consultant Numérique — IA & Chatbot</div>
-        <div class="tl-desc" data-fr="Pilotage du changement de solution chatbot : étude des besoins, accompagnement des équipes dans la transition technologique, animation d'ateliers de formation autour des bonnes pratiques numériques." data-en="Led a chatbot platform migration: defined product vision, scoped objectives, gathered requirements, wrote functional specifications. Conducted tests, Go/NoGo decisions and supported teams through the tech transition.">Pilotage du changement de solution chatbot : étude des besoins, accompagnement des équipes dans la transition technologique, animation d'ateliers de formation autour des bonnes pratiques numériques.</div>
-        <div class="tl-tags"><span class="tag">Conduite du changement</span><span class="tag">Ateliers</span><span class="tag">IA</span><span class="tag">Chatbot</span></div>
+        <div class="tl-desc" data-fr="Pilotage du changement de solution chatbot : étude des besoins, accompagnement des équipes dans la transition technologique, animation d'ateliers de formation autour des bonnes pratiques numériques." data-en="Led an AI chatbot platform migration as PO: defined product vision, gathered requirements, wrote functional specs, owned Go/NoGo testing and roll-out. Built tooling and processes enabling Care and Ops teams to configure, test, and monitor the AI agent.">Pilotage du changement de solution chatbot : étude des besoins, accompagnement des équipes dans la transition technologique, animation d'ateliers de formation autour des bonnes pratiques numériques.</div>
+        <div class="tl-tags">
+          <span class="tag" data-fr="Conduite du changement" data-en="Product Owner">Conduite du changement</span>
+          <span class="tag" data-fr="Ateliers" data-en="AI Agent Config">Ateliers</span>
+          <span class="tag" data-fr="IA" data-en="LLM">IA</span>
+          <span class="tag">Chatbot</span>
+        </div>
       </div>
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date" data-fr="Mars 2020 → Juin 2023" data-en="Mar. 2020 → Jun. 2023">Mars 2020 → Juin 2023</div>
         <div class="tl-company">Orange · SpeakUX!</div>
-        <div class="tl-role" data-fr="Consultant Numérique Chatbot" data-en="PO / UX Designer Chatbot">Consultant Numérique Chatbot</div>
-        <div class="tl-desc" data-fr="Accompagnement des utilisateurs dans l'adoption d'un chatbot conversationnel. Analyse des besoins, amélioration de l'expérience digitale, animation d'ateliers. Résultats : +20 pts de satisfaction client, +30 % d'évaluations." data-en="Redesigned the billing explanation flow → +20 pts customer satisfaction. Optimised in-bot satisfaction collection → +30% response rate. Designed conversational trees, analysed conversations, managed product backlog.">Accompagnement des utilisateurs dans l'adoption d'un chatbot conversationnel. Analyse des besoins, amélioration de l'expérience digitale, animation d'ateliers. Résultats : <strong>+20 pts de satisfaction</strong>, <strong>+30 % d'évaluations</strong>.</div>
-        <div class="tl-tags"><span class="tag">Adoption digitale</span><span class="tag">UX</span><span class="tag">Ateliers</span><span class="tag">Chatbot</span><span class="tag">Agile</span></div>
+        <div class="tl-role" data-fr="Consultant Numérique Chatbot" data-en="PO / UX Designer — AI Customer Support">Consultant Numérique Chatbot</div>
+        <div class="tl-desc" data-fr="Accompagnement des utilisateurs dans l'adoption d'un chatbot conversationnel. Analyse des besoins, amélioration de l'expérience digitale, animation d'ateliers. Résultats : +20 pts de satisfaction client, +30 % d'évaluations." data-en="Owned the AI customer support product: redesigned automated billing flow → +20 pts satisfaction; built automated in-bot satisfaction collection → +30% response rate. Designed conversational trees (Dialogflow, Rasa), analysed production conversations, maintained product backlog end-to-end.">Accompagnement des utilisateurs dans l'adoption d'un chatbot conversationnel. Analyse des besoins, amélioration de l'expérience digitale, animation d'ateliers. Résultats : <strong>+20 pts de satisfaction</strong>, <strong>+30 % d'évaluations</strong>.</div>
+        <div class="tl-tags">
+          <span class="tag" data-fr="Adoption digitale" data-en="AI Customer Support">Adoption digitale</span>
+          <span class="tag" data-fr="UX" data-en="Conversational UX">UX</span>
+          <span class="tag" data-fr="Ateliers" data-en="Backlog Management">Ateliers</span>
+          <span class="tag">Chatbot</span>
+          <span class="tag">Agile</span>
+        </div>
       </div>
       <div class="tl-item">
         <div class="tl-dot"></div>
@@ -257,7 +268,12 @@ footer a:hover,footer button:hover{color:var(--accent);}
         <div class="tl-company">Orange</div>
         <div class="tl-role" data-fr="Chargé de communication digitale" data-en="Digital Communication Manager">Chargé de communication digitale</div>
         <div class="tl-desc" data-fr="Propositions de solutions de communication innovantes pour la DRH. Création et publication de contenus liés à la marque. Réalisation multimédia : photo, vidéo, intégration web." data-en="Produced strategic content for the HR Support Functions. Managed internal and external editorial lines, multimedia integration and communication performance analysis.">Propositions de solutions de communication innovantes pour la DRH. Création et publication de contenus liés à la marque. Réalisation multimédia : photo, vidéo, intégration web.</div>
-        <div class="tl-tags"><span class="tag">Communication</span><span class="tag">Éditorial</span><span class="tag">Multimédia</span><span class="tag">HTML/CSS</span></div>
+        <div class="tl-tags">
+          <span class="tag" data-fr="Communication" data-en="Communication">Communication</span>
+          <span class="tag" data-fr="Éditorial" data-en="Editorial">Éditorial</span>
+          <span class="tag" data-fr="Multimédia" data-en="Multimedia">Multimédia</span>
+          <span class="tag">HTML/CSS</span>
+        </div>
       </div>
       <div class="tl-item">
         <div class="tl-dot"></div>
@@ -265,7 +281,11 @@ footer a:hover,footer button:hover{color:var(--accent);}
         <div class="tl-company">Nouvelle Cour Agency</div>
         <div class="tl-role" data-fr="Chef de projet digital & éditorial" data-en="Digital & Editorial Project Manager">Chef de projet digital & éditorial</div>
         <div class="tl-desc" data-fr="Gestion de projet et stratégie éditoriale pour #ToiMêmeTuFilmes (YouTube France). Gestion du projet web FairTradeFilmChallenge (MaxHavelaar). Contenus digitaux pour Bouygues Immobilier." data-en="Editorial strategy for the YouTube France tour #ToiMêmeTuFilmes. Managed the FairTradeFilmChallenge web project (MaxHavelaar). Audiovisual content for Bouygues Immobilier.">Gestion de projet et stratégie éditoriale pour #ToiMêmeTuFilmes (YouTube France). Gestion du projet web FairTradeFilmChallenge (MaxHavelaar). Contenus digitaux pour Bouygues Immobilier.</div>
-        <div class="tl-tags"><span class="tag">Gestion de projet</span><span class="tag">Stratégie digitale</span><span class="tag">Audiovisuel</span></div>
+        <div class="tl-tags">
+          <span class="tag" data-fr="Gestion de projet" data-en="Project Management">Gestion de projet</span>
+          <span class="tag" data-fr="Stratégie digitale" data-en="Digital Strategy">Stratégie digitale</span>
+          <span class="tag" data-fr="Audiovisuel" data-en="Audiovisual">Audiovisuel</span>
+        </div>
       </div>
     </div>
   </div>
@@ -277,25 +297,25 @@ footer a:hover,footer button:hover{color:var(--accent);}
     <h2 data-fr="Compétences" data-en="Skills">Compétences</h2>
     <div class="skills-grid">
       <div class="skill-card">
-        <div class="skill-card-title" data-fr="Accompagnement & Pédagogie" data-en="Conversational Design">Accompagnement & Pédagogie</div>
+        <div class="skill-card-title" data-fr="Accompagnement & Pédagogie" data-en="AI Product Development">Accompagnement & Pédagogie</div>
         <ul class="skill-list">
-          <li data-fr="Animation d'ateliers de formation" data-en="Conversational flow design">Animation d'ateliers de formation</li>
-          <li data-fr="Acculturation IA & outils numériques" data-en="Conversational UX Writing">Acculturation IA & outils numériques</li>
-          <li data-fr="Accompagnement au changement" data-en="Persona & tone of voice">Accompagnement au changement</li>
-          <li data-fr="Médiation numérique" data-en="Dialogflow · Rasa">Médiation numérique</li>
+          <li data-fr="Animation d'ateliers de formation" data-en="AI agent design & configuration">Animation d'ateliers de formation</li>
+          <li data-fr="Acculturation IA & outils numériques" data-en="LLM product management">Acculturation IA & outils numériques</li>
+          <li data-fr="Accompagnement au changement" data-en="Evaluation & quality monitoring">Accompagnement au changement</li>
+          <li data-fr="Médiation numérique" data-en="Dialogflow · Rasa · LLM APIs">Médiation numérique</li>
           <li data-fr="Création de supports pédagogiques" data-en="Conversation analysis & KPIs">Création de supports pédagogiques</li>
-          <li data-fr="Sens du service public" data-en="User testing & iterations">Sens du service public</li>
+          <li data-fr="Sens du service public" data-en="Iterative shipping & A/B">Sens du service public</li>
         </ul>
       </div>
       <div class="skill-card">
-        <div class="skill-card-title" data-fr="Gestion de Projet & IA" data-en="Product Management">Gestion de Projet & IA</div>
+        <div class="skill-card-title" data-fr="Gestion de Projet & IA" data-en="Customer Support AI">Gestion de Projet & IA</div>
         <ul class="skill-list">
-          <li data-fr="Conduite de projets digitaux" data-en="Requirements gathering & analysis">Conduite de projets digitaux</li>
-          <li data-fr="Recueil & analyse des besoins" data-en="Backlog prioritisation">Recueil & analyse des besoins</li>
-          <li data-fr="Chatbot & IA conversationnelle" data-en="Functional specifications">Chatbot & IA conversationnelle</li>
-          <li data-fr="Rédaction de spécifications" data-en="Workshop facilitation">Rédaction de spécifications</li>
-          <li data-fr="Suivi & reporting" data-en="Product KPIs & roadmap">Suivi & reporting</li>
-          <li data-fr="Méthodologies Agiles" data-en="Functional testing (UAT)">Méthodologies Agiles</li>
+          <li data-fr="Conduite de projets digitaux" data-en="Support automation roadmap">Conduite de projets digitaux</li>
+          <li data-fr="Recueil & analyse des besoins" data-en="Care & Ops collaboration">Recueil & analyse des besoins</li>
+          <li data-fr="Chatbot & IA conversationnelle" data-en="Multi-channel (Chat · Email · Phone)">Chatbot & IA conversationnelle</li>
+          <li data-fr="Rédaction de spécifications" data-en="Go/NoGo testing & validation">Rédaction de spécifications</li>
+          <li data-fr="Suivi & reporting" data-en="Product KPIs & OKRs">Suivi & reporting</li>
+          <li data-fr="Méthodologies Agiles" data-en="Escalation flow design">Méthodologies Agiles</li>
         </ul>
       </div>
       <div class="skill-card">
@@ -311,10 +331,10 @@ footer a:hover,footer button:hover{color:var(--accent);}
       <div class="skill-card">
         <div class="skill-card-title" data-fr="Soft Skills" data-en="Methods & Soft Skills">Soft Skills</div>
         <ul class="skill-list">
-          <li data-fr="Pédagogie & accompagnement" data-en="Cross-functional team coordination">Pédagogie & accompagnement</li>
-          <li data-fr="Relationnel & écoute active" data-en="Mentoring & coaching">Relationnel & écoute active</li>
-          <li data-fr="Rigueur & organisation" data-en="Rigour & organisation">Rigueur & organisation</li>
-          <li data-fr="Travail en équipe" data-en="Adaptability & communication">Travail en équipe</li>
+          <li data-fr="Pédagogie & accompagnement" data-en="Engineering ↔ Care/Ops bridging">Pédagogie & accompagnement</li>
+          <li data-fr="Relationnel & écoute active" data-en="Hands-on debugging & tracing">Relationnel & écoute active</li>
+          <li data-fr="Rigueur & organisation" data-en="Clear written communication">Rigueur & organisation</li>
+          <li data-fr="Travail en équipe" data-en="Iterative execution mindset">Travail en équipe</li>
           <li data-fr="Adaptation & initiative" data-en="Agile Scrum · Kanban · SAFe">Adaptation & initiative</li>
         </ul>
       </div>
@@ -362,7 +382,7 @@ footer a:hover,footer button:hover{color:var(--accent);}
     <h2 data-fr="Travaillons ensemble" data-en="Let's work together">Travaillons ensemble</h2>
     <p style="color:var(--muted);max-width:420px;font-size:0.88rem;"
       data-fr="Vous avez un projet de transformation numérique, un besoin d'accompagnement ou une opportunité ? Je suis disponible pour échanger."
-      data-en="Got a project, an opportunity, or just want to chat? I'm open to new collaborations.">
+      data-en="Got an AI product challenge, an opportunity, or just want to connect? I'm open.">
       Vous avez un projet de transformation numérique, un besoin d'accompagnement ou une opportunité ? Je suis disponible pour échanger.
     </p>
     <div class="contact-actions">
@@ -374,7 +394,7 @@ footer a:hover,footer button:hover{color:var(--accent);}
 </div>
 
 <footer>
-  <span data-fr="© 2026 Joey Augustinien · Chef de Projet Numérique" data-en="© 2026 Joey Augustinien · Conversational Designer & Product Owner">
+  <span data-fr="© 2026 Joey Augustinien · Chef de Projet Numérique" data-en="© 2026 Joey Augustinien · Product Manager · AI">
     © 2026 Joey Augustinien · Chef de Projet Numérique
   </span>
   <span style="margin:0 10px;">·</span>
@@ -442,7 +462,11 @@ prefersDark.addEventListener('change', function(e) {
 });
 
 /* ── LANGUE ── */
-var currentLang = localStorage.getItem('lang') || 'fr';
+function getLangFromURL() {
+  var p = window.location.pathname;
+  return (p === '/en' || p.startsWith('/en/')) ? 'en' : null;
+}
+var currentLang = getLangFromURL() || localStorage.getItem('lang') || 'fr';
 
 var CHAT_CONTENT = {
   fr: {
@@ -460,16 +484,16 @@ var CHAT_CONTENT = {
     ]
   },
   en: {
-    pills: ['Conversational Design', 'Product Owner', 'UX Writing', 'Dialogflow · Rasa', 'Agile'],
-    placeholder: 'E.g. What is his conversational design expertise?',
-    welcome: "Hello! I'm Joey Augustinien's AI assistant.\n\nAsk me anything about his background, projects or skills — or click a suggestion above 👆",
+    pills: ['Product Manager', 'AI & LLM', 'Customer Support', 'Care Automation', 'Agile'],
+    placeholder: 'E.g. What is his AI customer support experience?',
+    welcome: "Hello! I'm Joey Augustinien's AI assistant.\n\nAsk me anything about his PM experience in AI, customer support automation, or his past projects — or click a suggestion above 👆",
     quickBtns: [
-      { label: '🎓 Education',    q: "What are Joey's degrees and certifications?" },
-      { label: '🚀 Key projects', q: "What are Joey's most impactful projects?" },
-      { label: '💬 Conv. design', q: "What is Joey's expertise in conversational design?" },
-      { label: '📋 PO exp.',      q: "What is Joey's Product Owner experience?" },
-      { label: '⚙️ Hard skills', q: "What are Joey's technical skills?" },
-      { label: '🌍 Languages',    q: 'What languages does Joey speak?' }
+      { label: '🤖 AI experience',   q: "What is Joey's experience building AI products?" },
+      { label: '💬 Support AI',      q: "How has Joey worked on AI customer support automation?" },
+      { label: '📋 PM skills',       q: "What are Joey's product management skills?" },
+      { label: '⚡ Key results',     q: "What are Joey's most impactful measurable results?" },
+      { label: '🔧 Builder mindset', q: "How hands-on is Joey when working on AI products?" },
+      { label: '🌍 Languages',       q: 'What languages does Joey speak?' }
     ]
   }
 };
@@ -486,9 +510,18 @@ function buildPills(lang) {
   });
 }
 
-function setLang(lang) {
+function setLang(lang, pushHistory) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
+  if (pushHistory) {
+    var newPath = lang === 'en' ? '/en' : '/';
+    if (window.location.pathname !== newPath) history.pushState(null, '', newPath);
+  }
+  document.title = lang === 'en'
+    ? 'Joey Augustinien — Product Manager · AI'
+    : 'Joey Augustinien — Chef de Projet Numérique & IA';
+  var cvFile = lang === 'en' ? 'Resume Joey Augustinien PM.pdf' : 'CV_Joey_Augustinien_2026.pdf';
+  document.querySelectorAll('a[download].btn-gold').forEach(function(a) { a.href = cvFile; });
   document.querySelectorAll('.lang-btn').forEach(function(b) {
     b.classList.toggle('active', b.textContent.toLowerCase() === lang);
   });
@@ -612,12 +645,8 @@ function hideTyping() {
 
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded', function() {
-  buildPills(currentLang);
-  buildQuickBtns(currentLang);
+  setLang(currentLang, false);
   initChat(currentLang);
-  document.querySelectorAll('.lang-btn').forEach(function(b) {
-    b.classList.toggle('active', b.textContent.toLowerCase() === currentLang);
-  });
 });
 </script>
 </body>
