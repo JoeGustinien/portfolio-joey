@@ -197,7 +197,7 @@ exports.handler = async (event) => {
   try {
     const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
     const response = await client.messages.create({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-sonnet-5-5",
       max_tokens: 400,                    // réduit vs 1000 pour limiter les coûts
       system: SYSTEM_PROMPTS[lang],       // system prompt CÔTÉ SERVEUR uniquement
       messages,
